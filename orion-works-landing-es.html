@@ -1,0 +1,2427 @@
+<!--
+  ORION WORKS — Landing WordPress (ESPAÑOL)
+  Dominio: orion-works.ai
+  Archivo hermano: orion-works-landing-en.html
+
+  En WordPress: crea dos páginas (Inicio ES + /en/) y actualiza los
+  href del conmutador ES|EN a las URLs reales de cada página.
+
+  Fondo: sube assets/orion-constellation-bg.jpg a Medios de WP y
+  reemplaza la URL en .ow-sky { background-image: ... }.
+
+  Badges: sube la carpeta assets/badges/ a Medios (o mantén la
+  ruta relativa assets/badges/ junto al HTML publicado).
+
+  Logo: assets/orion-works-logo.png (completo),
+  assets/orion-works-mark.png (hexágono) y
+  assets/orion-works-wordmark.png (texto ORION / WORKS.ai).
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+.ow-root {
+  --bg: #050912;
+  --bg-2: #0a1220;
+  --surface: #101a2c;
+  --surface-2: #152238;
+  --line: rgba(148, 180, 220, 0.12);
+  --line-strong: rgba(148, 180, 220, 0.22);
+  --text: #f3f7ff;
+  --muted: #93a6c4;
+  --blue: #3b82f6;
+  --blue-2: #60a5fa;
+  --blue-deep: #1d4ed8;
+  --orange: #f97316;
+  --orange-2: #fb923c;
+  --orange-dim: rgba(249, 115, 22, 0.16);
+  --blue-dim: rgba(59, 130, 246, 0.16);
+  --max: 1180px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  box-sizing: border-box;
+  color: var(--text);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background: transparent;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+.ow-root *,
+.ow-root *::before,
+.ow-root *::after { box-sizing: border-box; }
+
+.ow-root a { color: inherit; text-decoration: none; }
+
+.ow-wrap {
+  width: min(100% - 2.5rem, var(--max));
+  margin-inline: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== ORION NEBULA FULL-PAGE BACKGROUND ===== */
+.ow-sky {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-color: #05020f;
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(5, 2, 15, 0.25) 0%,
+      rgba(5, 2, 15, 0.35) 50%,
+      rgba(5, 2, 15, 0.62) 100%
+    ),
+    url("assets/orion-constellation-bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* NAV — fija arriba en toda la página */
+.ow-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(5, 9, 18, 0.88);
+  border-bottom: 1px solid var(--line);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ow-nav-spacer {
+  height: 6.75rem;
+  pointer-events: none;
+}
+
+.ow-nav.is-compact {
+  background: rgba(5, 9, 18, 0.92);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.ow-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 6.75rem;
+  gap: 1rem;
+  transition: min-height 0.35s var(--ease);
+}
+
+.ow-nav.is-compact .ow-nav__inner {
+  min-height: 4.35rem;
+}
+
+.ow-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  line-height: normal;
+  padding-block: 0.2rem;
+}
+
+.ow-logo__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.ow-logo__mark {
+  height: 5.1rem;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.4));
+  transition: height 0.35s var(--ease), filter 0.35s ease;
+}
+
+.ow-logo__wordmark {
+  height: 2.85rem;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: height 0.35s var(--ease);
+}
+
+.ow-logo__tagline {
+  margin: 0;
+  max-width: 18rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: font-size 0.35s var(--ease), opacity 0.25s ease, max-width 0.35s ease;
+}
+
+.ow-logo__tagline span {
+  display: block;
+  color: inherit;
+  font-weight: inherit;
+  letter-spacing: 0.06em;
+  margin-top: 0.12rem;
+}
+
+.ow-nav.is-compact .ow-logo {
+  gap: 0.55rem;
+}
+
+.ow-nav.is-compact .ow-logo__mark {
+  height: 2.7rem;
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.3));
+}
+
+.ow-nav.is-compact .ow-logo__wordmark {
+  height: 1.55rem;
+}
+
+.ow-nav.is-compact .ow-logo__brand {
+  gap: 0.15rem;
+}
+
+.ow-nav.is-compact .ow-logo__tagline {
+  font-size: 0.58rem;
+  max-width: 12.5rem;
+  opacity: 1;
+}
+
+.ow-nav__links {
+  display: flex;
+  gap: 1.35rem;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.ow-nav__links a:hover { color: var(--text); }
+
+.ow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.85rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: transform 0.3s var(--ease), background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.ow-btn:hover { transform: translateY(-1px); }
+
+.ow-btn--primary {
+  background: linear-gradient(135deg, var(--orange), #ea580c);
+  color: #1a0b02;
+  box-shadow: 0 8px 28px rgba(249, 115, 22, 0.28);
+}
+
+.ow-btn--primary:hover { background: linear-gradient(135deg, var(--orange-2), var(--orange)); }
+
+.ow-btn--ghost {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--text);
+}
+
+.ow-btn--ghost:hover {
+  border-color: rgba(96, 165, 250, 0.5);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.ow-btn--sm {
+  min-height: 2.4rem;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.85rem;
+}
+
+.ow-lang {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  overflow: hidden;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.ow-lang a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.7rem;
+  color: var(--muted);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ow-lang a:hover { color: var(--text); }
+
+.ow-lang a.is-active {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(249, 115, 22, 0.28));
+  color: var(--text);
+}
+
+.ow-lang__flag {
+  width: 1.05rem;
+  height: 0.78rem;
+  display: block;
+  border-radius: 2px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+}
+
+.ow-nav__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* HERO */
+.ow-hero {
+  position: relative;
+  padding: 4.5rem 0 3.5rem;
+  overflow: hidden;
+}
+
+.ow-hero__grid {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.ow-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.1rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--blue-2);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ow-kicker i {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--orange);
+  display: inline-block;
+  animation: ow-blink 1.6s ease-in-out infinite;
+}
+
+@keyframes ow-blink {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.ow-hero h1 {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(2.4rem, 5.2vw, 4.1rem);
+  font-weight: 750;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  margin: 0 0 1rem;
+  max-width: 13ch;
+}
+
+.ow-hero h1 em {
+  font-style: normal;
+  background: linear-gradient(120deg, var(--blue-2), var(--orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ow-hero__lead {
+  margin: 0 0 1.75rem;
+  max-width: 34rem;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.ow-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+}
+
+/* DASHBOARD + ANIMATED CHARTS */
+.ow-dash {
+  position: relative;
+  border: 1px solid var(--line-strong);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(21, 34, 56, 0.95) 0%, rgba(10, 18, 32, 0.98) 100%);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(59, 130, 246, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  overflow: hidden;
+  animation: ow-rise 0.9s var(--ease) both;
+}
+
+@keyframes ow-rise {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.ow-dash__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+}
+
+.ow-dash__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #3a4454;
+}
+.ow-dash__dot:nth-child(1) { background: #ff5f57; }
+.ow-dash__dot:nth-child(2) { background: #febc2e; }
+.ow-dash__dot:nth-child(3) { background: #28c840; }
+
+.ow-dash__title {
+  margin-left: 0.55rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.ow-live {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--orange-2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ow-live::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.6);
+  animation: ow-ping 1.6s ease-out infinite;
+}
+
+@keyframes ow-ping {
+  0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.55); }
+  70% { box-shadow: 0 0 0 8px rgba(249, 115, 22, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+}
+
+.ow-dash__body {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 0.85rem;
+  padding: 0.9rem;
+}
+
+.ow-panel {
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: rgba(255,255,255,0.02);
+  padding: 0.85rem;
+  overflow: hidden;
+}
+
+.ow-panel h4 {
+  margin: 0 0 0.65rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ow-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.55rem;
+}
+
+.ow-metric strong {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.55rem;
+  letter-spacing: -0.03em;
+}
+
+.ow-metric span {
+  font-size: 0.75rem;
+  color: var(--orange-2);
+}
+
+/* Animated vertical chart */
+.ow-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+  height: 92px;
+  padding-top: 0.35rem;
+}
+
+.ow-chart__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.ow-chart__bar {
+  width: 100%;
+  border-radius: 4px 4px 2px 2px;
+  background: linear-gradient(180deg, var(--blue-2), var(--blue-deep));
+  transform-origin: bottom;
+  animation: ow-grow 2.2s var(--ease) infinite alternate;
+}
+
+.ow-chart__col:nth-child(2n) .ow-chart__bar {
+  background: linear-gradient(180deg, var(--orange-2), #c2410c);
+  animation-delay: 0.25s;
+}
+
+.ow-chart__col:nth-child(3n) .ow-chart__bar { animation-delay: 0.5s; }
+.ow-chart__col:nth-child(4n) .ow-chart__bar { animation-delay: 0.75s; }
+
+@keyframes ow-grow {
+  from { transform: scaleY(0.55); opacity: 0.7; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+
+.ow-chart__label {
+  font-size: 0.62rem;
+  color: var(--muted);
+  font-family: "Outfit", sans-serif;
+}
+
+/* SVG line chart */
+.ow-linechart {
+  width: 100%;
+  height: 88px;
+  display: block;
+}
+
+.ow-linechart .ow-path-blue {
+  fill: none;
+  stroke: var(--blue-2);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  animation: ow-trace 3.5s var(--ease) infinite;
+}
+
+.ow-linechart .ow-path-orange {
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  animation: ow-trace 3.5s var(--ease) 0.4s infinite;
+}
+
+.ow-linechart .ow-area {
+  fill: url(#owAreaGrad);
+  opacity: 0.35;
+  animation: ow-fade-area 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes ow-trace {
+  0% { stroke-dashoffset: 360; }
+  40%, 70% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -360; }
+}
+
+@keyframes ow-fade-area {
+  from { opacity: 0.15; }
+  to { opacity: 0.4; }
+}
+
+.ow-dot-move {
+  fill: #fff;
+  stroke: var(--orange);
+  stroke-width: 2;
+  animation: ow-slide-dot 3.5s var(--ease) infinite;
+}
+
+@keyframes ow-slide-dot {
+  0% { offset-distance: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+.ow-list {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.ow-list-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.6rem;
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid transparent;
+  font-size: 0.78rem;
+  animation: ow-row-pulse 4s ease-in-out infinite;
+}
+
+.ow-list-item:nth-child(2) { animation-delay: 0.6s; }
+.ow-list-item:nth-child(3) { animation-delay: 1.2s; }
+
+@keyframes ow-row-pulse {
+  0%, 100% { border-color: transparent; background: rgba(255,255,255,0.025); }
+  40% { border-color: rgba(59, 130, 246, 0.35); background: rgba(59, 130, 246, 0.08); }
+}
+
+.ow-list-item b { font-weight: 500; }
+.ow-list-item em {
+  font-style: normal;
+  color: var(--orange-2);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+}
+
+.ow-flow {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.ow-flow__step {
+  text-align: center;
+  padding: 0.7rem 0.4rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--line);
+  background: rgba(59, 130, 246, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.ow-flow__step::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.12), transparent);
+  transform: translateX(-100%);
+  animation: ow-sweep 3.8s ease-in-out infinite;
+}
+
+.ow-flow__step:nth-child(2)::after { animation-delay: 0.5s; }
+.ow-flow__step:nth-child(3)::after { animation-delay: 1s; }
+.ow-flow__step:nth-child(4)::after { animation-delay: 1.5s; }
+
+@keyframes ow-sweep {
+  0%, 20% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+.ow-flow__step strong {
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.78rem;
+  margin-bottom: 0.15rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ow-flow__step span {
+  font-size: 0.68rem;
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
+}
+
+/* STEPS */
+.ow-steps {
+  padding: 1.25rem 0 3rem;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 2;
+}
+
+.ow-steps__row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.ow-step {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: rgba(16, 26, 44, 0.75);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.25s ease, transform 0.3s var(--ease);
+}
+
+.ow-step:hover {
+  border-color: rgba(249, 115, 22, 0.45);
+  transform: translateY(-2px);
+}
+
+.ow-step__icon {
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 0.65rem;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--blue-dim), var(--orange-dim));
+  color: var(--blue-2);
+  flex-shrink: 0;
+}
+
+.ow-step__icon svg { width: 1.15rem; height: 1.15rem; }
+
+.ow-step strong {
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.ow-step span {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* SECTIONS */
+.ow-section {
+  padding: 5rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.ow-section--surface {
+  background: rgba(10, 18, 32, 0.55);
+  border-block: 1px solid var(--line);
+  backdrop-filter: blur(2px);
+}
+
+.ow-eyebrow {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange-2);
+  margin-bottom: 0.75rem;
+}
+
+.ow-h2 {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(1.85rem, 3.6vw, 2.85rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin: 0 0 0.85rem;
+  max-width: 18ch;
+}
+
+.ow-lede {
+  margin: 0;
+  color: var(--muted);
+  max-width: 38rem;
+  font-size: 1.02rem;
+}
+
+.ow-section__head { margin-bottom: 2.4rem; }
+
+.ow-cases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.ow-case {
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: rgba(16, 26, 44, 0.85);
+  transition: transform 0.35s var(--ease), border-color 0.25s ease, box-shadow 0.25s ease;
+  min-height: 100%;
+}
+
+.ow-case:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+
+.ow-case__label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-2);
+  margin: 0 0 0.65rem;
+}
+
+.ow-case h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.65rem;
+  line-height: 1.25;
+}
+
+.ow-case p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.ow-case__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.ow-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #c5d0df;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+}
+
+.ow-platform {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+}
+
+.ow-plat {
+  padding: 1.35rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.06), transparent);
+}
+
+.ow-plat h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.05rem;
+  margin: 0 0 0.85rem;
+  letter-spacing: -0.02em;
+  color: var(--orange-2);
+}
+
+.ow-plat ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.ow-plat li {
+  position: relative;
+  padding-left: 0.9rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.ow-plat li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.ow-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+
+.ow-chip {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.65rem 0.95rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--line);
+  background: rgba(16, 26, 44, 0.8);
+  color: #d7e0ec;
+}
+
+.ow-models {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.ow-model {
+  padding: 1.75rem;
+  border-radius: 1rem;
+  border: 1px solid var(--line-strong);
+  background: rgba(16, 26, 44, 0.9);
+}
+
+.ow-model--accent {
+  background:
+    radial-gradient(ellipse 80% 70% at 100% 0%, rgba(249, 115, 22, 0.18), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(59, 130, 246, 0.16), transparent 55%),
+    var(--surface-2);
+}
+
+.ow-model h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.45rem;
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.03em;
+}
+
+.ow-model p {
+  margin: 0 0 1.1rem;
+  color: var(--muted);
+}
+
+.ow-model ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.ow-model li {
+  padding-left: 1rem;
+  position: relative;
+  font-size: 0.92rem;
+}
+
+.ow-model li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+}
+
+.ow-diff {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.ow-diff article {
+  padding: 1.4rem 1.3rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.ow-diff h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.ow-diff p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.ow-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.ow-stat {
+  padding: 1.75rem 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 0.95rem;
+  background: rgba(16, 26, 44, 0.85);
+  position: relative;
+  overflow: hidden;
+}
+
+.ow-stat::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  right: -30px;
+  top: -30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent 70%);
+  animation: ow-orb 5s ease-in-out infinite alternate;
+}
+
+.ow-stat:nth-child(2)::after {
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.22), transparent 70%);
+}
+
+@keyframes ow-orb {
+  from { transform: scale(0.85); opacity: 0.5; }
+  to { transform: scale(1.2); opacity: 1; }
+}
+
+.ow-stat strong {
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  background: linear-gradient(120deg, var(--blue-2), var(--orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+  margin-bottom: 0.65rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ow-stat h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.05rem;
+  margin: 0 0 0.4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ow-stat p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ow-clients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.ow-client {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  padding: 0.65rem 0.9rem;
+  background: rgba(255,255,255,0.02);
+}
+
+.ow-cta {
+  padding: 4.5rem 0 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.ow-cta__box {
+  border: 1px solid var(--line-strong);
+  border-radius: 1.15rem;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  background:
+    radial-gradient(ellipse 50% 80% at 100% 0%, rgba(249, 115, 22, 0.16), transparent 55%),
+    radial-gradient(ellipse 40% 60% at 0% 100%, rgba(59, 130, 246, 0.18), transparent 55%),
+    rgba(16, 26, 44, 0.92);
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.ow-cta h2 {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  margin: 0 0 0.7rem;
+  line-height: 1.1;
+}
+
+.ow-cta p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.ow-cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.ow-cta__note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* CONTACT */
+.ow-contact {
+  padding: 5rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.ow-contact__grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.ow-contact__channels {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.ow-channel {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  padding: 1.15rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: rgba(16, 26, 44, 0.82);
+  transition: border-color 0.25s ease, transform 0.3s var(--ease);
+}
+
+.ow-channel:hover {
+  border-color: rgba(249, 115, 22, 0.45);
+  transform: translateY(-2px);
+}
+
+.ow-channel__icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.65rem;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--blue-dim), var(--orange-dim));
+  color: var(--blue-2);
+}
+
+.ow-channel__icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.ow-channel strong {
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.98rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.15rem;
+}
+
+.ow-channel span,
+.ow-channel p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.ow-form {
+  padding: 1.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 1rem;
+  background:
+    radial-gradient(ellipse 60% 50% at 100% 0%, rgba(249, 115, 22, 0.12), transparent 55%),
+    rgba(16, 26, 44, 0.9);
+}
+
+.ow-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.ow-field {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.ow-field label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ow-field input,
+.ow-field textarea,
+.ow-field select {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.65rem;
+  background: rgba(5, 9, 18, 0.55);
+  color: var(--text);
+  font: inherit;
+  padding: 0.75rem 0.85rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ow-field input:focus,
+.ow-field textarea:focus,
+.ow-field select:focus {
+  border-color: rgba(59, 130, 246, 0.55);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.ow-field textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.ow-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin-top: 0.35rem;
+}
+
+.ow-form__hint {
+  margin: 0.75rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.ow-form__status {
+  margin: 0.65rem 0 0;
+  font-size: 0.85rem;
+  color: var(--orange-2);
+  display: none;
+}
+
+.ow-form__status.is-visible { display: block; }
+
+.ow-nav__cta {
+  flex-shrink: 0;
+}
+
+@media (min-width: 981px) {
+  .ow-nav__cta { display: none; }
+}
+
+.ow-footer {
+  border-top: 1px solid var(--line);
+  padding: 1.75rem 0 2.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  position: relative;
+  z-index: 2;
+}
+
+.ow-footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.ow-footer strong {
+  color: var(--text);
+  font-family: "Outfit", sans-serif;
+}
+
+.ow-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ow-footer__logo {
+  width: auto;
+  height: 5.5rem;
+  display: block;
+  object-fit: contain;
+}
+
+.ow-footer__meta {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.ow-footer__meta strong {
+  display: block;
+  color: var(--text);
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+}
+
+.ow-footer a:hover { color: var(--orange-2); }
+
+/* ===== AI AGENTS SECTION ===== */
+.ow-agents {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.ow-agents__list {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ow-agents__list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: rgba(16, 26, 44, 0.78);
+}
+
+.ow-agents__list strong {
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.2rem;
+}
+
+.ow-agents__list p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.ow-agents__badge {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.6rem;
+  display: grid;
+  place-items: center;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #041018;
+  background: linear-gradient(135deg, var(--blue-2), var(--orange));
+  flex-shrink: 0;
+}
+
+.ow-agents-viz {
+  position: relative;
+  border: 1px solid var(--line-strong);
+  border-radius: 1rem;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 45%, rgba(59, 130, 246, 0.14), transparent 60%),
+    rgba(10, 18, 32, 0.88);
+  padding: 1rem;
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.ow-agents-viz__label {
+  position: absolute;
+  top: 0.9rem;
+  left: 1rem;
+  z-index: 2;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ow-agents-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ow-agents-svg .ow-edge {
+  fill: none;
+  stroke: rgba(96, 165, 250, 0.35);
+  stroke-width: 1.5;
+}
+
+.ow-agents-svg .ow-edge-flow {
+  fill: none;
+  stroke: url(#owAgentGrad);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 8 14;
+  animation: ow-edge-flow 1.8s linear infinite;
+}
+
+.ow-agents-svg .ow-edge-flow--rev {
+  animation-direction: reverse;
+  animation-duration: 2.2s;
+  stroke: url(#owAgentGrad2);
+}
+
+@keyframes ow-edge-flow {
+  to { stroke-dashoffset: -44; }
+}
+
+.ow-agents-svg .ow-node-core {
+  fill: #152238;
+  stroke: var(--orange);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.35));
+}
+
+.ow-agents-svg .ow-node-agent {
+  fill: #101a2c;
+  stroke: var(--blue-2);
+  stroke-width: 1.6;
+}
+
+.ow-agents-svg .ow-node-pulse {
+  fill: none;
+  stroke: rgba(249, 115, 22, 0.55);
+  stroke-width: 1.2;
+  animation: ow-ring 2.6s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.ow-agents-svg .ow-node-pulse--2 {
+  animation-delay: 0.9s;
+  stroke: rgba(59, 130, 246, 0.45);
+}
+
+@keyframes ow-ring {
+  0% { opacity: 0.7; transform: scale(0.85); }
+  100% { opacity: 0; transform: scale(1.45); }
+}
+
+.ow-agents-svg .ow-node-label {
+  fill: #e8eef8;
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.ow-agents-svg .ow-node-sub {
+  fill: #93a6c4;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 9px;
+  text-anchor: middle;
+}
+
+.ow-agents-svg .ow-packet {
+  fill: var(--orange-2);
+  animation: ow-packet 3s ease-in-out infinite;
+}
+
+.ow-agents-svg .ow-packet--2 {
+  fill: var(--blue-2);
+  animation-delay: 0.7s;
+}
+
+.ow-agents-svg .ow-packet--3 {
+  fill: #fcd34d;
+  animation-delay: 1.4s;
+}
+
+@keyframes ow-packet {
+  0%, 100% { opacity: 0.2; }
+  40%, 60% { opacity: 1; }
+}
+
+.ow-agents-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+
+.ow-agents-legend span {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+  background: rgba(255,255,255,0.02);
+}
+
+/* ===== CERTIFICATIONS REEL ===== */
+.ow-certs {
+  padding: 4.5rem 0;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.ow-certs .ow-wrap {
+  margin-bottom: 1.75rem;
+}
+
+.ow-certs-reel {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.ow-certs-track {
+  display: flex;
+  gap: 0.85rem;
+  width: max-content;
+  animation: ow-reel 38s linear infinite;
+}
+
+.ow-certs-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ow-reel {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.ow-cert {
+  flex: 0 0 auto;
+  width: min(280px, 78vw);
+  padding: 1.15rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: rgba(16, 26, 44, 0.88);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.ow-cert__mark {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 0.55rem;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.ow-cert__mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.ow-cert__vendor {
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange-2);
+  margin-bottom: 0.2rem;
+}
+
+.ow-cert__name {
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.ow-cert__code {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+@media (max-width: 980px) {
+  .ow-hero__grid,
+  .ow-cases,
+  .ow-platform,
+  .ow-models,
+  .ow-diff,
+  .ow-stats,
+  .ow-cta__box,
+  .ow-steps__row,
+  .ow-contact__grid,
+  .ow-agents {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ow-nav__links { display: none; }
+  .ow-nav__inner { min-height: 5.5rem; }
+  .ow-logo__mark { height: 4.1rem; }
+  .ow-logo__wordmark { height: 2.35rem; }
+  .ow-logo__tagline { font-size: 0.68rem; max-width: 14rem; }
+  .ow-nav.is-compact .ow-nav__inner { min-height: 4rem; }
+  .ow-nav.is-compact .ow-logo__mark { height: 2.4rem; }
+  .ow-nav.is-compact .ow-logo__wordmark { height: 1.35rem; }
+  .ow-nav.is-compact .ow-logo__tagline { font-size: 0.52rem; max-width: 11rem; }
+  .ow-hero h1 { max-width: none; }
+  .ow-flow { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .ow-hero__grid,
+  .ow-cases,
+  .ow-platform,
+  .ow-models,
+  .ow-diff,
+  .ow-stats,
+  .ow-cta__box,
+  .ow-steps__row,
+  .ow-dash__body,
+  .ow-contact__grid,
+  .ow-form__row,
+  .ow-agents {
+    grid-template-columns: 1fr;
+  }
+  .ow-wrap { width: min(100% - 1.35rem, var(--max)); }
+  .ow-hero { padding-top: 3rem; }
+  .ow-section { padding: 3.75rem 0; }
+  .ow-flow { grid-template-columns: 1fr 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ow-chart__bar,
+  .ow-linechart .ow-path-blue,
+  .ow-linechart .ow-path-orange,
+  .ow-list-item,
+  .ow-flow__step::after,
+  .ow-live::before,
+  .ow-stat::after,
+  .ow-dash,
+  .ow-agents-svg .ow-edge-flow,
+  .ow-agents-svg .ow-node-pulse,
+  .ow-agents-svg .ow-packet,
+  .ow-certs-track {
+    animation: none !important;
+  }
+}
+</style>
+
+<div class="ow-root" id="orion-works">
+  <!-- Fondo Orión estático (sin animación) -->
+  <div class="ow-sky" aria-hidden="true"></div>
+
+  <nav class="ow-nav" aria-label="Principal">
+    <div class="ow-wrap ow-nav__inner">
+      <a class="ow-logo" href="#orion-works" aria-label="Orion Works.ai">
+        <img class="ow-logo__mark" src="assets/orion-works-mark.png" alt="" width="55" height="55" decoding="async">
+        <span class="ow-logo__brand">
+          <img class="ow-logo__wordmark" src="assets/orion-works-wordmark.png" alt="Orion Works.ai" width="160" height="34" decoding="async">
+          <p class="ow-logo__tagline">Soluciones inteligentes <span>para un futuro impulsado por datos</span></p>
+        </span>
+      </a>
+      <div class="ow-nav__right">
+        <div class="ow-nav__links">
+          <a href="#plataforma">Plataforma</a>
+          <a href="#agentes">Agentes de IA</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#modalidades">Modalidades</a>
+          <a href="#contacto">Contáctanos</a>
+        </div>
+        <a href="#contacto" class="ow-btn ow-btn--primary ow-btn--sm ow-nav__cta">Contáctanos</a>
+        <div class="ow-lang" aria-label="Idioma">
+          <a class="is-active" href="orion-works-landing-es.html" lang="es" hreflang="es" title="Español">
+            <img class="ow-lang__flag" src="assets/flag-ec.svg" alt="" width="18" height="12" decoding="async">
+            ES
+          </a>
+          <a href="orion-works-landing-en.html" lang="en" hreflang="en" title="English">
+            <img class="ow-lang__flag" src="assets/flag-us.svg" alt="" width="18" height="12" decoding="async">
+            EN
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="ow-nav-spacer" aria-hidden="true"></div>
+
+  <header class="ow-hero">
+    <div class="ow-wrap ow-hero__grid">
+      <div>
+        <div class="ow-kicker"><i></i> orion-works.ai</div>
+        <h1>Orientamos tu IA hacia las <em>estrellas</em></h1>
+        <p class="ow-hero__lead">
+          Como la constelación de Orión, marcamos el rumbo: diseñamos e implementamos
+          soluciones de datos, agentes y automatización sobre Azure, Databricks y Microsoft Power Platform.
+        </p>
+        <div class="ow-hero__actions">
+          <a class="ow-btn ow-btn--primary" href="#contacto">Agendar demostración</a>
+          <a class="ow-btn ow-btn--ghost" href="#proyectos">Ver proyectos</a>
+        </div>
+      </div>
+
+      <aside class="ow-dash" aria-label="Panel de control Orion Works">
+        <div class="ow-dash__bar">
+          <span class="ow-dash__dot"></span>
+          <span class="ow-dash__dot"></span>
+          <span class="ow-dash__dot"></span>
+          <span class="ow-dash__title">Orion Control · Datos e IA</span>
+          <span class="ow-live">En vivo</span>
+        </div>
+        <div class="ow-dash__body">
+          <div class="ow-panel">
+            <h4>Rendimiento de pipelines</h4>
+            <div class="ow-metric">
+              <strong id="ow-metric">98.4%</strong>
+              <span>+2.1%</span>
+            </div>
+            <div class="ow-chart" aria-hidden="true">
+              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:58%"></div><span class="ow-chart__label">L</span></div>
+              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:72%"></div><span class="ow-chart__label">M</span></div>
+              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:48%"></div><span class="ow-chart__label">X</span></div>
+              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:86%"></div><span class="ow-chart__label">J</span></div>
+              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:64%"></div><span class="ow-chart__label">V</span></div>
+              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:78%"></div><span class="ow-chart__label">S</span></div>
+              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:92%"></div><span class="ow-chart__label">D</span></div>
+            </div>
+          </div>
+
+          <div class="ow-panel">
+            <h4>Latencia de agentes · 24 h</h4>
+            <svg class="ow-linechart" viewBox="0 0 280 88" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="owAreaGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/>
+                  <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path class="ow-area" d="M0,70 C30,62 50,48 80,52 C110,56 130,28 160,34 C190,40 210,18 240,24 C260,28 270,20 280,16 L280,88 L0,88 Z"/>
+              <path class="ow-path-blue" d="M0,70 C30,62 50,48 80,52 C110,56 130,28 160,34 C190,40 210,18 240,24 C260,28 270,20 280,16"/>
+              <path class="ow-path-orange" d="M0,78 C40,72 70,60 100,64 C130,68 150,44 180,48 C210,52 240,36 280,30"/>
+            </svg>
+            <div class="ow-list" style="margin-top:0.45rem">
+              <div class="ow-list-item"><b>RAG Ventas</b><em>42ms</em></div>
+              <div class="ow-list-item"><b>Docs PMO</b><em>61ms</em></div>
+              <div class="ow-list-item"><b>Conocimiento RRHH</b><em>55ms</em></div>
+            </div>
+          </div>
+
+          <div class="ow-flow">
+            <div class="ow-flow__step"><strong>Descubrir</strong><span>Casos de uso</span></div>
+            <div class="ow-flow__step"><strong>Diseñar</strong><span>Arquitectura</span></div>
+            <div class="ow-flow__step"><strong>Construir</strong><span>Agentes y datos</span></div>
+            <div class="ow-flow__step"><strong>Operar</strong><span>Producción</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <div class="ow-steps">
+    <div class="ow-wrap ow-steps__row">
+      <div class="ow-step">
+        <div class="ow-step__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
+        </div>
+        <div><strong>Descubrir</strong><span>Casos y datos</span></div>
+      </div>
+      <div class="ow-step">
+        <div class="ow-step__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h10M4 17h14"/></svg>
+        </div>
+        <div><strong>Diseñar</strong><span>Arquitectura Azure</span></div>
+      </div>
+      <div class="ow-step">
+        <div class="ow-step__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
+        </div>
+        <div><strong>Construir</strong><span>IA y plataformas de datos</span></div>
+      </div>
+      <div class="ow-step">
+        <div class="ow-step__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <div><strong>Operar</strong><span>Producción real</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="ow-section" id="proyectos">
+    <div class="ow-wrap">
+      <div class="ow-section__head">
+        <div class="ow-eyebrow">Proyectos en producción</div>
+        <h2 class="ow-h2">Impacto real en banca, agroindustria y servicios</h2>
+        <p class="ow-lede">Casos construidos e implementados sobre Azure, Databricks y Power Platform en Latinoamérica.</p>
+      </div>
+      <div class="ow-cases">
+        <article class="ow-case">
+          <p class="ow-case__label">Diners Club</p>
+          <h3>Asistente documental RAG para PMO</h3>
+          <p>Consulta de documentación con Azure OpenAI, AI Search y Document Intelligence en Microsoft Teams.</p>
+          <div class="ow-case__tags"><span class="ow-tag">Azure AI</span><span class="ow-tag">Teams</span></div>
+        </article>
+        <article class="ow-case">
+          <p class="ow-case__label">Fideval</p>
+          <h3>Plataforma de datos Fondos Personas</h3>
+          <p>Arquitectura Medallion con Databricks, Data Lake Gen2 y consumo en Power BI.</p>
+          <div class="ow-case__tags"><span class="ow-tag">Lakehouse</span><span class="ow-tag">Power BI</span></div>
+        </article>
+        <article class="ow-case">
+          <p class="ow-case__label">Produbanco</p>
+          <h3>Aplicación de gestión de viajes</h3>
+          <p>Solución integral con Power Apps, Power Automate y tableros ejecutivos.</p>
+          <div class="ow-case__tags"><span class="ow-tag">Power Apps</span><span class="ow-tag">Automate</span></div>
+        </article>
+        <article class="ow-case">
+          <p class="ow-case__label">Grupo Promerica</p>
+          <h3>Plataforma de proyectos estratégicos</h3>
+          <p>Gestión regional de iniciativas con Power Platform y Azure para banca centroamericana.</p>
+          <div class="ow-case__tags"><span class="ow-tag">Power Platform</span><span class="ow-tag">Azure</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ow-section ow-section--surface" id="plataforma">
+    <div class="ow-wrap">
+      <div class="ow-section__head">
+        <div class="ow-eyebrow">Capacidades</div>
+        <h2 class="ow-h2">La plataforma de servicios Orion Works</h2>
+        <p class="ow-lede">Del descubrimiento a la operación: arquitectura, agentes, datos y automatización con un socio sénior único.</p>
+      </div>
+      <div class="ow-platform">
+        <article class="ow-plat">
+          <h3>Descubrir</h3>
+          <ul>
+            <li>Evaluación de datos e IA</li>
+            <li>Casos de uso priorizados</li>
+            <li>POC y demostraciones en vivo</li>
+          </ul>
+        </article>
+        <article class="ow-plat">
+          <h3>Diseñar</h3>
+          <ul>
+            <li>Arquitectura Azure / Fabric</li>
+            <li>Lakehouse Medallion</li>
+            <li>Gobierno y seguridad</li>
+          </ul>
+        </article>
+        <article class="ow-plat">
+          <h3>Construir</h3>
+          <ul>
+            <li>Agentes RAG y multiagente</li>
+            <li>Copilot Studio / Microsoft 365</li>
+            <li>Power Apps y Power Automate</li>
+          </ul>
+        </article>
+        <article class="ow-plat">
+          <h3>Operar</h3>
+          <ul>
+            <li>Pipelines y operación de modelos</li>
+            <li>Azure DevOps (repos, boards y CI/CD)</li>
+            <li>Tableros Power BI</li>
+            <li>Capacitación del equipo</li>
+          </ul>
+        </article>
+      </div>
+      <div class="ow-stack" aria-label="Tecnologías">
+        <span class="ow-chip">Azure</span>
+        <span class="ow-chip">Azure AI Foundry</span>
+        <span class="ow-chip">Azure Databricks</span>
+        <span class="ow-chip">Azure DevOps</span>
+        <span class="ow-chip">Microsoft Fabric</span>
+        <span class="ow-chip">MS Copilot Studio</span>
+        <span class="ow-chip">Microsoft 365 Copilot</span>
+        <span class="ow-chip">Power Apps</span>
+        <span class="ow-chip">Power Automate</span>
+        <span class="ow-chip">Power Pages</span>
+        <span class="ow-chip">Power BI</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ow-section" id="agentes">
+    <div class="ow-wrap">
+      <div class="ow-section__head">
+        <div class="ow-eyebrow">Agentes de IA</div>
+        <h2 class="ow-h2">Orquestación multiagente lista para producción</h2>
+        <p class="ow-lede">Diseñamos supervisores y agentes especializados que consultan datos, documentos y sistemas de negocio con Azure AI Foundry, Databricks y Copilot Studio.</p>
+      </div>
+
+      <div class="ow-agents">
+        <div>
+          <ul class="ow-agents__list">
+            <li>
+              <span class="ow-agents__badge">01</span>
+              <div>
+                <strong>Supervisor multiagente</strong>
+                <p>Coordina especialistas, enruta la consulta y consolida la respuesta con trazabilidad.</p>
+              </div>
+            </li>
+            <li>
+              <span class="ow-agents__badge">02</span>
+              <div>
+                <strong>Agentes RAG y Genie</strong>
+                <p>Respuestas sobre documentos, lakehouse y espacios Genie conectados al negocio.</p>
+              </div>
+            </li>
+            <li>
+              <span class="ow-agents__badge">03</span>
+              <div>
+                <strong>Copilot Studio y Teams</strong>
+                <p>Canales de conversación en Microsoft 365 con gobernanza y control de acceso.</p>
+              </div>
+            </li>
+            <li>
+              <span class="ow-agents__badge">04</span>
+              <div>
+                <strong>Herramientas y acciones</strong>
+                <p>Integración con APIs, Azure Functions, Power Automate y flujos operativos.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="ow-agents-viz" aria-label="Diagrama animado de orquestación de agentes">
+          <div class="ow-agents-viz__label">Orion · Multiagente</div>
+          <svg class="ow-agents-svg" viewBox="0 0 520 400" role="img">
+            <defs>
+              <linearGradient id="owAgentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#f97316"/>
+              </linearGradient>
+              <linearGradient id="owAgentGrad2" x1="100%" y1="0%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#fb923c"/>
+                <stop offset="100%" stop-color="#60a5fa"/>
+              </linearGradient>
+            </defs>
+
+            <!-- edges -->
+            <path class="ow-edge" d="M260 200 L120 90" />
+            <path class="ow-edge" d="M260 200 L400 90" />
+            <path class="ow-edge" d="M260 200 L110 300" />
+            <path class="ow-edge" d="M260 200 L410 300" />
+            <path class="ow-edge-flow" d="M260 200 L120 90" />
+            <path class="ow-edge-flow ow-edge-flow--rev" d="M260 200 L400 90" />
+            <path class="ow-edge-flow" d="M260 200 L110 300" />
+            <path class="ow-edge-flow ow-edge-flow--rev" d="M260 200 L410 300" />
+
+            <!-- packets -->
+            <circle class="ow-packet" cx="190" cy="145" r="3.5" />
+            <circle class="ow-packet ow-packet--2" cx="330" cy="145" r="3.5" />
+            <circle class="ow-packet ow-packet--3" cx="185" cy="250" r="3.5" />
+
+            <!-- supervisor -->
+            <circle class="ow-node-pulse" cx="260" cy="200" r="48" style="transform-box: fill-box; transform-origin: center;" />
+            <circle class="ow-node-pulse ow-node-pulse--2" cx="260" cy="200" r="48" style="transform-box: fill-box; transform-origin: center;" />
+            <circle class="ow-node-core" cx="260" cy="200" r="38" />
+            <text class="ow-node-label" x="260" y="196">Supervisor</text>
+            <text class="ow-node-sub" x="260" y="212">orquestador</text>
+
+            <!-- agents -->
+            <circle class="ow-node-agent" cx="120" cy="90" r="34" />
+            <text class="ow-node-label" x="120" y="86">Ventas</text>
+            <text class="ow-node-sub" x="120" y="102">RAG</text>
+
+            <circle class="ow-node-agent" cx="400" cy="90" r="34" />
+            <text class="ow-node-label" x="400" y="86">Documentos</text>
+            <text class="ow-node-sub" x="400" y="102">PMO</text>
+
+            <circle class="ow-node-agent" cx="110" cy="300" r="34" />
+            <text class="ow-node-label" x="110" y="296">RRHH</text>
+            <text class="ow-node-sub" x="110" y="312">conocimiento</text>
+
+            <circle class="ow-node-agent" cx="410" cy="300" r="34" />
+            <text class="ow-node-label" x="410" y="296">Datos</text>
+            <text class="ow-node-sub" x="410" y="312">Genie</text>
+          </svg>
+          <div class="ow-agents-legend">
+            <span>Azure AI Foundry</span>
+            <span>Databricks Agents</span>
+            <span>Copilot Studio</span>
+            <span>Microsoft Teams</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="ow-section" id="modalidades">
+    <div class="ow-wrap">
+      <div class="ow-section__head">
+        <div class="ow-eyebrow">Modalidades</div>
+        <h2 class="ow-h2">Cómo contratarnos</h2>
+        <p class="ow-lede">Dos modelos claros, según alcance y ritmo de tu organización.</p>
+      </div>
+      <div class="ow-models">
+        <article class="ow-model">
+          <h3>Llave en mano</h3>
+          <p>Proyecto cerrado con entregables, hitos y criterio de aceptación.</p>
+          <ul>
+            <li>Descubrimiento + arquitectura + construcción</li>
+            <li>MVP o solución en producción</li>
+            <li>Documentación y transferencia</li>
+          </ul>
+        </article>
+        <article class="ow-model ow-model--accent">
+          <h3>Paquete de horas</h3>
+          <p>Capacidad sénior flexible para backlog continuo de datos e IA.</p>
+          <ul>
+            <li>Priorización semanal con sponsor</li>
+            <li>Arquitectura, desarrollo o mentoría</li>
+            <li>Ideal para evolución continua</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ow-section ow-section--surface">
+    <div class="ow-wrap">
+      <div class="ow-section__head">
+        <div class="ow-eyebrow">Diferenciadores</div>
+        <h2 class="ow-h2">Qué nos separa de una consultora genérica</h2>
+      </div>
+      <div class="ow-diff">
+        <article>
+          <h3>Producción, no demostraciones</h3>
+          <p>Arquitecturas y agentes pensados para operar en entornos regulados: banca, agroindustria y pharma.</p>
+        </article>
+        <article>
+          <h3>Especialización Microsoft + Databricks</h3>
+          <p>Especialización profunda en Azure AI Foundry, Databricks, Azure DevOps, Copilot Studio y Power Platform.</p>
+        </article>
+        <article>
+          <h3>Preventa técnica real</h3>
+          <p>Demostraciones en vivo adaptadas al negocio del cliente: el sello que acelera decisión y adopción.</p>
+        </article>
+        <article>
+          <h3>Equipo boutique sénior</h3>
+          <p>Sin capas intermedias. Arquitectura, entrega y mentoría con más de 12 años de trayectoria en LatAm.</p>
+        </article>
+        <article>
+          <h3>Atención personalizada</h3>
+          <p>Trato directo con el arquitecto/a de la solución: comunicación clara, contexto de negocio y acompañamiento cercano en cada fase.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ow-certs" id="certificaciones" aria-label="Certificaciones">
+    <div class="ow-wrap">
+      <div class="ow-section__head" style="margin-bottom:0">
+        <div class="ow-eyebrow">Certificaciones</div>
+        <h2 class="ow-h2">Credenciales Azure y Databricks</h2>
+        <p class="ow-lede">Formación oficial que respalda la entrega de plataformas de datos, DevOps e inteligencia artificial.</p>
+      </div>
+    </div>
+    <div class="ow-certs-reel">
+      <div class="ow-certs-track">
+        <!-- set 1 -->
+        <article class="ow-cert">
+          <span class="ow-cert__mark"><img src="assets/badges/az-400.png" alt="Badge Microsoft DevOps Engineer Expert" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Microsoft Azure</span>
+            <p class="ow-cert__name">DevOps Engineer Expert</p>
+            <span class="ow-cert__code">AZ-400</span>
+          </div>
+        </article>
+        <article class="ow-cert">
+          <span class="ow-cert__mark"><img src="assets/badges/az-104.svg" alt="Badge Microsoft Azure Administrator Associate" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Microsoft Azure</span>
+            <p class="ow-cert__name">Administrator Associate</p>
+            <span class="ow-cert__code">AZ-104</span>
+          </div>
+        </article>
+        <article class="ow-cert">
+          <span class="ow-cert__mark"><img src="assets/badges/pl-300.svg" alt="Badge Microsoft Power BI Data Analyst Associate" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Microsoft</span>
+            <p class="ow-cert__name">Power BI Data Analyst Associate</p>
+            <span class="ow-cert__code">PL-300</span>
+          </div>
+        </article>
+        <article class="ow-cert">
+          <span class="ow-cert__mark"><img src="assets/badges/dp-600.svg" alt="Badge Microsoft Fabric Analytics" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Microsoft Fabric</span>
+            <p class="ow-cert__name">Analytics Solutions</p>
+            <span class="ow-cert__code">DP-600</span>
+          </div>
+        </article>
+        <article class="ow-cert">
+          <span class="ow-cert__mark"><img src="assets/badges/dp-700.svg" alt="Badge Microsoft Fabric Data Engineering" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Microsoft Fabric</span>
+            <p class="ow-cert__name">Data Engineering Solutions</p>
+            <span class="ow-cert__code">DP-700</span>
+          </div>
+        </article>
+        <article class="ow-cert">
+          <span class="ow-cert__mark"><img src="assets/badges/dbx-dea.png" alt="Badge Databricks Data Engineer Associate" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Databricks</span>
+            <p class="ow-cert__name">Data Engineer Associate</p>
+            <span class="ow-cert__code">Certificación oficial</span>
+          </div>
+        </article>
+        <article class="ow-cert">
+          <span class="ow-cert__mark"><img src="assets/badges/dbx-genai.png" alt="Badge Databricks Generative AI Engineer Associate" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Databricks</span>
+            <p class="ow-cert__name">Generative AI Engineer Associate</p>
+            <span class="ow-cert__code">Certificación oficial</span>
+          </div>
+        </article>
+        <!-- set 2 (loop) -->
+        <article class="ow-cert" aria-hidden="true">
+          <span class="ow-cert__mark"><img src="assets/badges/az-400.png" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Microsoft Azure</span>
+            <p class="ow-cert__name">DevOps Engineer Expert</p>
+            <span class="ow-cert__code">AZ-400</span>
+          </div>
+        </article>
+        <article class="ow-cert" aria-hidden="true">
+          <span class="ow-cert__mark"><img src="assets/badges/az-104.svg" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Microsoft Azure</span>
+            <p class="ow-cert__name">Administrator Associate</p>
+            <span class="ow-cert__code">AZ-104</span>
+          </div>
+        </article>
+        <article class="ow-cert" aria-hidden="true">
+          <span class="ow-cert__mark"><img src="assets/badges/pl-300.svg" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Microsoft</span>
+            <p class="ow-cert__name">Power BI Data Analyst Associate</p>
+            <span class="ow-cert__code">PL-300</span>
+          </div>
+        </article>
+        <article class="ow-cert" aria-hidden="true">
+          <span class="ow-cert__mark"><img src="assets/badges/dp-600.svg" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Microsoft Fabric</span>
+            <p class="ow-cert__name">Analytics Solutions</p>
+            <span class="ow-cert__code">DP-600</span>
+          </div>
+        </article>
+        <article class="ow-cert" aria-hidden="true">
+          <span class="ow-cert__mark"><img src="assets/badges/dp-700.svg" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Microsoft Fabric</span>
+            <p class="ow-cert__name">Data Engineering Solutions</p>
+            <span class="ow-cert__code">DP-700</span>
+          </div>
+        </article>
+        <article class="ow-cert" aria-hidden="true">
+          <span class="ow-cert__mark"><img src="assets/badges/dbx-dea.png" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Databricks</span>
+            <p class="ow-cert__name">Data Engineer Associate</p>
+            <span class="ow-cert__code">Certificación oficial</span>
+          </div>
+        </article>
+        <article class="ow-cert" aria-hidden="true">
+          <span class="ow-cert__mark"><img src="assets/badges/dbx-genai.png" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="ow-cert__vendor">Databricks</span>
+            <p class="ow-cert__name">Generative AI Engineer Associate</p>
+            <span class="ow-cert__code">Certificación oficial</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ow-section">
+    <div class="ow-wrap">
+      <div class="ow-stats">
+        <article class="ow-stat">
+          <strong>12+</strong>
+          <h3>Años de experiencia en soluciones de datos e IA</h3>
+          <p>Proyectos de alto impacto en Centroamérica y Sudamérica.</p>
+        </article>
+        <article class="ow-stat">
+          <strong>27</strong>
+          <h3>Implementaciones Power BI</h3>
+          <p>Analítica ejecutiva conectada a datos operativos y de IA.</p>
+        </article>
+        <article class="ow-stat">
+          <strong>12</strong>
+          <h3>Arquitecturas Databricks</h3>
+          <p>Lakehouse, agentes de IA generativa y pipelines en producción.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ow-section ow-section--surface" id="clientes">
+    <div class="ow-wrap">
+      <div class="ow-section__head">
+        <div class="ow-eyebrow">Trayectoria</div>
+        <h2 class="ow-h2">Organizaciones donde se ha entregado valor</h2>
+        <p class="ow-lede">Experiencia acumulada en banca, fondos, agroindustria, energía y farmacéutica.</p>
+      </div>
+      <div class="ow-clients">
+        <span class="ow-client">Diners Ecuador</span>
+        <span class="ow-client">Fideval</span>
+        <span class="ow-client">Produbanco</span>
+        <span class="ow-client">Banco Promerica CR</span>
+        <span class="ow-client">Banco Promerica GT</span>
+        <span class="ow-client">Banpro Nicaragua</span>
+        <span class="ow-client">St. Georges Bank</span>
+        <span class="ow-client">Banesco Panamá</span>
+        <span class="ow-client">Banco Internacional</span>
+        <span class="ow-client">Banco Bolivariano</span>
+        <span class="ow-client">PCR Energy</span>
+        <span class="ow-client">Alpina Ecuador</span>
+        <span class="ow-client">Medicamenta</span>
+        <span class="ow-client">Laboratorios LIFE</span>
+        <span class="ow-client">Grupo Noboa</span>
+        <span class="ow-client">Nueva Pescanova</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ow-contact" id="contacto">
+    <div class="ow-wrap">
+      <div class="ow-section__head">
+        <div class="ow-eyebrow">Contáctanos</div>
+        <h2 class="ow-h2">Hablemos de tu próximo proyecto de IA y datos</h2>
+        <p class="ow-lede">Cuéntanos tu caso. Te respondemos con una propuesta de alcance, stack y modalidad (llave en mano o paquetes de horas).</p>
+      </div>
+
+      <div class="ow-contact__grid">
+        <div class="ow-contact__channels">
+          <a class="ow-channel" href="https://wa.me/593998816054" target="_blank" rel="noopener noreferrer">
+            <span class="ow-channel__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+            </span>
+            <div>
+              <strong>WhatsApp</strong>
+              <span>+593 99 881 6054</span>
+            </div>
+          </a>
+          <a class="ow-channel" href="mailto:ndpaz7@yahoo.com?subject=Consulta%20Orion%20Works">
+            <span class="ow-channel__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            </span>
+            <div>
+              <strong>Email</strong>
+              <span>ndpaz7@yahoo.com</span>
+            </div>
+          </a>
+          <div class="ow-channel">
+            <span class="ow-channel__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </span>
+            <div>
+              <strong>Ubicación</strong>
+              <p>Quito, Ecuador · Atención LatAm</p>
+            </div>
+          </div>
+          <div class="ow-channel">
+            <span class="ow-channel__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <div>
+              <strong>Respuesta típica</strong>
+              <p>Menos de 24 horas hábiles</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="ow-form" id="ow-contact-form" novalidate>
+          <div class="ow-form__row">
+            <div class="ow-field">
+              <label for="ow-name">Nombre</label>
+              <input id="ow-name" name="name" type="text" autocomplete="name" required placeholder="Tu nombre">
+            </div>
+            <div class="ow-field">
+              <label for="ow-email">Email</label>
+              <input id="ow-email" name="email" type="email" autocomplete="email" required placeholder="tu@empresa.com">
+            </div>
+          </div>
+          <div class="ow-field">
+            <label for="ow-company">Empresa</label>
+            <input id="ow-company" name="company" type="text" autocomplete="organization" placeholder="Nombre de la empresa">
+          </div>
+          <div class="ow-field">
+            <label for="ow-interest">Interés</label>
+            <select id="ow-interest" name="interest">
+              <option value="Demostración / consultoría">Demostración / consultoría</option>
+              <option value="Proyecto llave en mano">Proyecto llave en mano</option>
+              <option value="Paquete de horas">Paquete de horas</option>
+              <option value="Arquitectura de datos e IA">Arquitectura de datos e IA</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          <div class="ow-field">
+            <label for="ow-message">Mensaje</label>
+            <textarea id="ow-message" name="message" required placeholder="Cuéntanos el reto o caso de uso..."></textarea>
+          </div>
+          <div class="ow-form__actions">
+            <button class="ow-btn ow-btn--primary" type="submit">Enviar mensaje</button>
+            <a class="ow-btn ow-btn--ghost" href="https://wa.me/593998816054" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
+          <p class="ow-form__hint">Al enviar se abrirá tu cliente de correo con el mensaje listo para Orion Works.</p>
+          <p class="ow-form__status" id="ow-form-status" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ow-footer">
+    <div class="ow-wrap ow-footer__row">
+      <div class="ow-footer__brand">
+        <img class="ow-footer__logo" src="assets/orion-works-logo.png" alt="Orion Works.ai — Intelligent solutions for a data-driven future" width="120" height="162" loading="lazy" decoding="async">
+        <div class="ow-footer__meta">
+          <strong>Orion Works.ai</strong>
+          Ingeniería de IA y datos
+        </div>
+      </div>
+      <div>
+        <a href="https://orion-works.ai">orion-works.ai</a>
+        · © <span id="ow-year">2026</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var y = document.getElementById("ow-year");
+  if (y) y.textContent = String(new Date().getFullYear());
+
+  var nav = document.querySelector(".ow-nav");
+  var spacer = document.querySelector(".ow-nav-spacer");
+  if (nav && spacer) {
+    var compactAt = 48;
+    var syncNav = function () {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+      nav.classList.toggle("is-compact", scrollTop > compactAt);
+      spacer.style.height = nav.offsetHeight + "px";
+    };
+    syncNav();
+    window.addEventListener("scroll", syncNav, { passive: true });
+    window.addEventListener("resize", syncNav);
+    if (typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(syncNav).observe(nav);
+    }
+  }
+
+  var metric = document.getElementById("ow-metric");
+  if (metric) {
+    var base = 97.2;
+    setInterval(function () {
+      var n = base + Math.random() * 1.8;
+      metric.textContent = n.toFixed(1) + "%";
+    }, 2200);
+  }
+
+  var form = document.getElementById("ow-contact-form");
+  if (!form) return;
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = (document.getElementById("ow-name") || {}).value || "";
+    var email = (document.getElementById("ow-email") || {}).value || "";
+    var company = (document.getElementById("ow-company") || {}).value || "";
+    var interest = (document.getElementById("ow-interest") || {}).value || "";
+    var message = (document.getElementById("ow-message") || {}).value || "";
+    var status = document.getElementById("ow-form-status");
+
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      if (status) {
+        status.textContent = "Completa nombre, email y mensaje.";
+        status.classList.add("is-visible");
+      }
+      return;
+    }
+
+    var subject = encodeURIComponent("Consulta Orion Works — " + interest);
+    var body = encodeURIComponent(
+      "Nombre: " + name + "\n" +
+      "Email: " + email + "\n" +
+      "Empresa: " + company + "\n" +
+      "Interés: " + interest + "\n\n" +
+      message
+    );
+    window.location.href = "mailto:ndpaz7@yahoo.com?subject=" + subject + "&body=" + body;
+    if (status) {
+      status.textContent = "Abriendo tu correo… Si no se abre, escríbenos a ndpaz7@yahoo.com";
+      status.classList.add("is-visible");
+    }
+  });
+})();
+</script>
