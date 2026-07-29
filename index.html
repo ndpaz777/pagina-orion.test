@@ -2,11 +2,155 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0; url=orion-works-landing-es.html">
-  <title>Orion Works.ai</title>
-  <link rel="canonical" href="orion-works-landing-es.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orion Works.ai — Selección de versión</title>
+  <meta name="description" content="Página temporal: elige entre Versión 01 y Versión 02 de la home de Orion Works.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --muted: #9ca3af;
+      --line: rgba(255,255,255,0.18);
+      --blue: #60a5fa;
+      --orange: #fb923c;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(59,130,246,0.22), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(249,115,22,0.12), transparent 50%),
+        #000;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2rem 1.25rem;
+    }
+    .wrap {
+      width: min(920px, 100%);
+      text-align: center;
+    }
+    .mark {
+      width: 72px;
+      height: auto;
+      margin: 0 auto 1.25rem;
+      display: block;
+      filter: drop-shadow(0 0 18px rgba(96,165,250,0.45));
+    }
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+    .lede {
+      margin: 0 auto 2.25rem;
+      max-width: 34rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      padding: 1.5rem 1.35rem 1.35rem;
+      min-height: 210px;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.25s ease;
+    }
+    .card:hover {
+      border-color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-3px);
+    }
+    .card__num {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+    }
+    .card h2 {
+      margin: 0 0 0.55rem;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .card p {
+      margin: 0 0 1.4rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .card__cta {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid #fff;
+      padding: 0.7rem 1.1rem;
+      color: #fff;
+    }
+    .card--v1 .card__cta { border-color: var(--blue); color: var(--blue); }
+    .card--v2 .card__cta { border-color: #fff; }
+    .note {
+      margin-top: 1.75rem;
+      color: #6b7280;
+      font-size: 0.82rem;
+    }
+  </style>
 </head>
 <body>
-  <p><a href="orion-works-landing-es.html">Ir a Orion Works</a></p>
+  <main class="wrap">
+    <img class="mark" src="assets/orion-works-mark.png" alt="Orion Works" width="72" height="72">
+    <p class="eyebrow">En construcción · orion-works.ai</p>
+    <h1>Elige una versión de home</h1>
+    <p class="lede">Página temporal para comparar diseños. Versión 01 es la actual; Versión 02 es un enfoque tipo SpaceX, más cinematográfico.</p>
+
+    <div class="grid">
+      <a class="card card--v1" href="orion-works-landing-es.html">
+        <span class="card__num">Opción A</span>
+        <h2>Versión 01</h2>
+        <p>Home actual: dashboard animado, secciones de plataforma, agentes, certificaciones y contacto.</p>
+        <span class="card__cta">Abrir V01 →</span>
+      </a>
+      <a class="card card--v2" href="orion-works-v2-es.html">
+        <span class="card__num">Opción B</span>
+        <h2>Versión 02</h2>
+        <p>Nueva home full-screen, tipografía monumental y paneles a viewport completo, inspirada en SpaceX.</p>
+        <span class="card__cta">Abrir V02 →</span>
+      </a>
+    </div>
+    <p class="note">También puedes abrir el inglés desde cada versión con el conmutador ES | EN.</p>
+  </main>
 </body>
 </html>

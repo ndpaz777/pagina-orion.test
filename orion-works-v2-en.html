@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orion Works.ai — Version 02</title>
+  <meta name="description" content="We connect data and artificial intelligence to improve decisions, productivity, and experience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #fff;
+      --muted: #b6bcc6;
+      --line: rgba(255,255,255,0.18);
+      --bg: #000;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .sx-nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem clamp(1rem, 3vw, 2.5rem);
+      transition: background 0.25s ease, backdrop-filter 0.25s ease;
+    }
+    .sx-nav.is-solid {
+      background: rgba(0,0,0,0.82);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .sx-nav__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+    .sx-nav__brand img { width: 2.2rem; height: auto; }
+    .sx-nav__links {
+      display: flex;
+      align-items: center;
+      gap: 1.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+    .sx-nav__links a:hover { color: #fff; }
+    .sx-lang {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .sx-lang a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 0.55rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .sx-lang a.is-active { background: rgba(255,255,255,0.12); color: #fff; }
+    .sx-lang__flag { width: 1rem; height: 0.72rem; object-fit: cover; }
+    .sx-back {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 0.4rem 0.7rem;
+    }
+    .sx-back:hover { color: #fff; border-color: #fff; }
+
+    .sx-panel {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: #000 center / cover no-repeat;
+    }
+    .sx-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.78) 100%);
+      pointer-events: none;
+    }
+    .sx-panel__content {
+      position: relative;
+      z-index: 2;
+      width: min(1100px, calc(100% - 2.5rem));
+      margin: 0 auto 4.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .sx-kicker {
+      margin: 0 0 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #d1d5db;
+    }
+    .sx-panel h1,
+    .sx-panel h2 {
+      margin: 0 0 1rem;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 0.95;
+      text-transform: uppercase;
+      max-width: 14ch;
+      font-size: clamp(2.4rem, 7vw, 5.2rem);
+    }
+    .sx-panel p {
+      margin: 0 0 1.5rem;
+      max-width: 36rem;
+      color: #d1d5db;
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+    .sx-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .sx-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.1rem;
+      padding: 0.75rem 1.6rem;
+      border: 2px solid #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .sx-btn:hover { background: #fff; color: #000; }
+    .sx-btn--ghost {
+      border-color: rgba(255,255,255,0.55);
+      color: #fff;
+      background: transparent;
+    }
+
+    .sx-panel--hero {
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.7)),
+        url("assets/orion-constellation-bg.jpg");
+      background-position: center 30%;
+    }
+    .sx-panel--data {
+      background-image:
+        linear-gradient(120deg, rgba(0,0,0,0.55), rgba(10,20,50,0.45)),
+        radial-gradient(ellipse at 70% 40%, rgba(59,130,246,0.35), transparent 50%),
+        linear-gradient(180deg, #05070f, #000);
+    }
+    .sx-panel--agents {
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.75)),
+        radial-gradient(ellipse at 30% 60%, rgba(249,115,22,0.28), transparent 45%),
+        radial-gradient(ellipse at 80% 30%, rgba(96,165,250,0.25), transparent 40%),
+        linear-gradient(160deg, #0a0c14, #000);
+    }
+    .sx-panel--engage {
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.8)),
+        radial-gradient(circle at 50% 50%, rgba(99,102,241,0.25), transparent 55%),
+        #050508;
+    }
+    .sx-panel--contact {
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.85)),
+        url("assets/orion-constellation-bg.jpg");
+      background-position: center bottom;
+      min-height: 70vh;
+    }
+
+    .sx-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      margin: 1.25rem 0 1.75rem;
+      max-width: 48rem;
+    }
+    .sx-tile {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.35);
+      padding: 1rem 0.9rem;
+      backdrop-filter: blur(4px);
+    }
+    .sx-tile strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+    .sx-tile span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.35;
+    }
+
+    .sx-footer {
+      padding: 1.5rem clamp(1rem, 3vw, 2.5rem) 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      color: #9ca3af;
+      font-size: 0.8rem;
+    }
+    .sx-footer a:hover { color: #fff; }
+
+    @media (max-width: 860px) {
+      .sx-nav__links { display: none; }
+      .sx-grid { grid-template-columns: 1fr; }
+      .sx-panel__content { margin-bottom: 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="sx-nav" id="sx-nav" aria-label="Primary">
+    <a class="sx-nav__brand" href="#top">
+      <img src="assets/orion-works-mark.png" alt="" width="36" height="36">
+      Orion Works
+    </a>
+    <div class="sx-nav__links">
+      <a href="#data">Data &amp; AI</a>
+      <a href="#agents">Agents</a>
+      <a href="#engagement">Engagement</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.65rem">
+      <a class="sx-back" href="index.html">← Versions</a>
+      <div class="sx-lang" aria-label="Language">
+        <a href="orion-works-v2-es.html" hreflang="es" title="Español">
+          <img class="sx-lang__flag" src="assets/flag-ec.svg" alt=""> ES
+        </a>
+        <a class="is-active" href="orion-works-v2-en.html" hreflang="en" title="English">
+          <img class="sx-lang__flag" src="assets/flag-us.svg" alt=""> EN
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="sx-panel sx-panel--hero" id="top">
+    <div class="sx-panel__content">
+      <p class="sx-kicker">orion-works.ai</p>
+      <h1>Take your data to a new constellation</h1>
+      <p>We connect data and artificial intelligence to create solutions that improve decisions, productivity, and experience.</p>
+      <div class="sx-actions">
+        <a class="sx-btn" href="#contact">Book a demo</a>
+        <a class="sx-btn sx-btn--ghost" href="#data">Explore</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sx-panel sx-panel--data" id="data">
+    <div class="sx-panel__content">
+      <p class="sx-kicker">Platform</p>
+      <h2>Data ready for AI</h2>
+      <p>Lakehouse architectures, governance, and pipelines on Azure, Databricks, and Microsoft Power Platform — built for production, not demos.</p>
+      <div class="sx-grid">
+        <div class="sx-tile"><strong>Azure &amp; Fabric</strong><span>Integration, security, and enterprise analytics.</span></div>
+        <div class="sx-tile"><strong>Databricks</strong><span>Lakehouse, GenAI, and reliable pipelines.</span></div>
+        <div class="sx-tile"><strong>Power Platform</strong><span>Apps, automation, and BI tied to operations.</span></div>
+      </div>
+      <div class="sx-actions">
+        <a class="sx-btn" href="#agents">See agents</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sx-panel sx-panel--agents" id="agents">
+    <div class="sx-panel__content">
+      <p class="sx-kicker">AI Agents</p>
+      <h2>Multi-agent orchestration</h2>
+      <p>Supervisor plus specialized agents (RAG, Genie, automation) with control, latency, and traceability for real environments.</p>
+      <div class="sx-actions">
+        <a class="sx-btn" href="#engagement">How we engage</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sx-panel sx-panel--engage" id="engagement">
+    <div class="sx-panel__content">
+      <p class="sx-kicker">Engagement</p>
+      <h2>Turnkey or hourly</h2>
+      <p>Fixed-scope projects with clear deliverables, or hour packs to move flexibly by business priority.</p>
+      <div class="sx-grid">
+        <div class="sx-tile"><strong>Turnkey</strong><span>Discovery, design, build, and production launch.</span></div>
+        <div class="sx-tile"><strong>Hour packs</strong><span>Elastic data and AI capacity on demand.</span></div>
+        <div class="sx-tile"><strong>Advisory</strong><span>Architecture, roadmap, and executive guidance.</span></div>
+      </div>
+      <div class="sx-actions">
+        <a class="sx-btn" href="#contact">Talk to us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sx-panel sx-panel--contact" id="contact">
+    <div class="sx-panel__content">
+      <p class="sx-kicker">Contact</p>
+      <h2>Your next leap</h2>
+      <p>WhatsApp +593 99881 6054 · Email ndpaz7@yahoo.com · Quito, Ecuador · LatAm</p>
+      <div class="sx-actions">
+        <a class="sx-btn" href="https://wa.me/593998816054" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a class="sx-btn sx-btn--ghost" href="mailto:ndpaz7@yahoo.com?subject=Orion%20Works%20V02%20Demo">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sx-footer">
+    <div>Orion Works.ai — Intelligent solutions for a data-driven future</div>
+    <div><a href="index.html">Compare versions</a> · <a href="orion-works-landing-en.html">Go to V01</a></div>
+  </footer>
+
+  <script>
+  (function () {
+    var nav = document.getElementById("sx-nav");
+    if (!nav) return;
+    var sync = function () {
+      nav.classList.toggle("is-solid", window.scrollY > 40);
+    };
+    sync();
+    window.addEventListener("scroll", sync, { passive: true });
+  })();
+  </script>
+</body>
+</html>
