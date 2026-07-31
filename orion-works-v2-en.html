@@ -136,32 +136,31 @@
       margin: 0 auto 4.5rem;
       padding-bottom: 0.5rem;
     }
-    .sx-hero-layout {
+    .sx-panel--hero {
+      align-items: flex-end;
+    }
+    .sx-panel--hero .sx-hero-layout {
       position: relative;
       z-index: 2;
       width: min(1180px, calc(100% - 2.5rem));
       margin: 0 auto 3.25rem;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 1.5rem 2rem;
-      align-items: end;
+      display: block;
     }
-    .sx-hero-layout .sx-panel__content {
-      width: auto;
+    .sx-panel--hero .sx-panel__content {
+      width: min(560px, 100%);
       margin: 0;
       padding-bottom: 0;
-    }
-    .sx-brand-lockup {
-      display: block;
-      width: min(300px, 70vw);
-      height: auto;
-      margin: 0 0 1.1rem;
-      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.45));
+      position: relative;
+      z-index: 2;
     }
     .sx-hero-art {
-      justify-self: end;
-      width: min(560px, 100%);
-      margin-bottom: 0.5rem;
+      position: absolute;
+      top: clamp(5.5rem, 12vh, 7.5rem);
+      right: clamp(1rem, 4vw, 2.5rem);
+      width: min(520px, 46vw);
+      margin: 0;
+      z-index: 2;
+      pointer-events: none;
     }
     .sx-hero-art img {
       width: 100%;
@@ -314,16 +313,21 @@
       .sx-nav__links { display: none; }
       .sx-grid { grid-template-columns: 1fr; }
       .sx-panel__content { margin-bottom: 3rem; }
-      .sx-hero-layout {
-        grid-template-columns: 1fr;
-        margin-bottom: 2.5rem;
-      }
       .sx-hero-art {
-        order: -1;
-        justify-self: center;
+        position: relative;
+        top: auto;
+        right: auto;
         width: min(320px, 85vw);
-        margin-bottom: 0;
-        opacity: 0.95;
+        margin: 5.5rem auto 1rem;
+        pointer-events: auto;
+      }
+      .sx-panel--hero {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-end;
+      }
+      .sx-panel--hero .sx-hero-layout {
+        margin-bottom: 2.5rem;
       }
       .sx-nav__logo { height: 2.35rem; }
     }
@@ -333,7 +337,7 @@
   <div class="sx-sky" aria-hidden="true"></div>
   <nav class="sx-nav" id="sx-nav" aria-label="Primary">
     <a class="sx-nav__brand" href="#top" aria-label="Orion Works.ai">
-      <img class="sx-nav__logo" src="assets/orion-hunter-logo.png?v=4" alt="Orion Works.ai" width="160" height="85" decoding="async">
+      <img class="sx-nav__logo" src="assets/orion-hunter-logo.png?v=5" alt="Orion Works.ai" width="160" height="85" decoding="async">
     </a>
     <div class="sx-nav__links">
       <a href="#data">Data &amp; AI</a>
@@ -355,6 +359,9 @@
   </nav>
 
   <section class="sx-panel sx-panel--hero" id="top">
+    <aside class="sx-hero-art">
+      <img src="assets/orion-hunter-logo.png?v=5" alt="Orion Works.ai — Data · AI · Automation" width="520" height="300" decoding="async">
+    </aside>
     <div class="sx-hero-layout">
       <div class="sx-panel__content">
         <p class="sx-kicker">orion-works.ai</p>
@@ -365,9 +372,6 @@
           <a class="sx-btn sx-btn--ghost" href="#data">Explore</a>
         </div>
       </div>
-      <aside class="sx-hero-art">
-        <img src="assets/orion-hunter-logo.png?v=4" alt="Orion Works.ai — Data · AI · Automation" width="520" height="300" decoding="async">
-      </aside>
     </div>
   </section>
 
@@ -416,7 +420,7 @@
 
   <section class="sx-panel sx-panel--contact" id="contact">
     <div class="sx-panel__content">
-      <img class="sx-contact-logo" src="assets/orion-hunter-logo.png?v=4" alt="Orion Works.ai" width="360" height="207" loading="lazy" decoding="async">
+      <img class="sx-contact-logo" src="assets/orion-hunter-logo.png?v=5" alt="Orion Works.ai" width="360" height="207" loading="lazy" decoding="async">
       <p class="sx-kicker">Contact</p>
       <h2>Your next leap</h2>
       <p>WhatsApp +593 99881 6054 · Email ndpaz7@yahoo.com · Quito, Ecuador · LatAm</p>
@@ -429,7 +433,7 @@
 
   <footer class="sx-footer">
     <div class="sx-footer__brand">
-      <img class="sx-footer__logo" src="assets/orion-hunter-logo.png?v=4" alt="Orion Works.ai" width="160" height="92" loading="lazy" decoding="async">
+      <img class="sx-footer__logo" src="assets/orion-hunter-logo.png?v=5" alt="Orion Works.ai" width="160" height="92" loading="lazy" decoding="async">
       <div class="sx-footer__meta">
         <strong>Orion Works.ai</strong>
         <span>Data · AI · Automation</span>
