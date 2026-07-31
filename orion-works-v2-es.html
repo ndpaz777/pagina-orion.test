@@ -72,9 +72,25 @@
       color: #fff;
     }
     .sx-nav__brand img {
-      width: 2.2rem;
+      width: 2.65rem;
       height: auto;
-      filter: grayscale(1) brightness(1.15);
+      filter: none;
+    }
+    .sx-nav__brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+      gap: 0.1rem;
+    }
+    .sx-nav__brand-text strong {
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+    }
+    .sx-nav__brand-text span {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      color: #bdbdbd;
     }
     .sx-nav__links {
       display: flex;
@@ -138,6 +154,45 @@
       width: min(1100px, calc(100% - 2.5rem));
       margin: 0 auto 4.5rem;
       padding-bottom: 0.5rem;
+    }
+    .sx-hero-layout {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 2.5rem));
+      margin: 0 auto 3.25rem;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.5rem 2rem;
+      align-items: end;
+    }
+    .sx-hero-layout .sx-panel__content {
+      width: auto;
+      margin: 0;
+      padding-bottom: 0;
+    }
+    .sx-brand-lockup {
+      display: block;
+      width: min(300px, 70vw);
+      height: auto;
+      margin: 0 0 1.1rem;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.45));
+    }
+    .sx-hero-art {
+      justify-self: end;
+      width: min(440px, 100%);
+      margin-bottom: 0.5rem;
+    }
+    .sx-hero-art img {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 18px 50px rgba(0,0,0,0.65));
+    }
+    .sx-contact-logo {
+      display: block;
+      width: min(260px, 65vw);
+      height: auto;
+      margin: 0 0 1.15rem;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
     }
     .sx-kicker {
       margin: 0 0 0.75rem;
@@ -245,25 +300,63 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 0.75rem;
+      align-items: center;
+      gap: 1rem;
       color: #9a9a9a;
       font-size: 0.8rem;
     }
     .sx-footer a:hover { color: #fff; }
+    .sx-footer__brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .sx-footer__logo {
+      height: 3.4rem;
+      width: auto;
+      opacity: 0.92;
+    }
+    .sx-footer__meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      line-height: 1.35;
+    }
+    .sx-footer__meta strong {
+      color: #e8e8e8;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
 
     @media (max-width: 860px) {
       .sx-nav__links { display: none; }
       .sx-grid { grid-template-columns: 1fr; }
       .sx-panel__content { margin-bottom: 3rem; }
+      .sx-hero-layout {
+        grid-template-columns: 1fr;
+        margin-bottom: 2.5rem;
+      }
+      .sx-hero-art {
+        order: -1;
+        justify-self: center;
+        width: min(260px, 70vw);
+        margin-bottom: 0;
+        opacity: 0.9;
+      }
+      .sx-nav__brand-text span { display: none; }
     }
   </style>
 </head>
 <body>
   <div class="sx-sky" aria-hidden="true"></div>
   <nav class="sx-nav" id="sx-nav" aria-label="Principal">
-    <a class="sx-nav__brand" href="#top">
-      <img src="assets/orion-works-mark.png" alt="" width="36" height="36">
-      Orion Works
+    <a class="sx-nav__brand" href="#top" aria-label="Orion Works.ai">
+      <img src="assets/orion-hunter-mark.png" alt="" width="42" height="58" decoding="async">
+      <span class="sx-nav__brand-text">
+        <strong>Orion</strong>
+        <span>Works.ai</span>
+      </span>
     </a>
     <div class="sx-nav__links">
       <a href="#datos">Datos &amp; IA</a>
@@ -285,14 +378,20 @@
   </nav>
 
   <section class="sx-panel sx-panel--hero" id="top">
-    <div class="sx-panel__content">
-      <p class="sx-kicker">orion-works.ai</p>
-      <h1>Lleva tus datos a una nueva constelación</h1>
-      <p>Conectamos datos e inteligencia artificial para crear soluciones que mejoran decisiones, productividad y experiencia.</p>
-      <div class="sx-actions">
-        <a class="sx-btn" href="#contacto">Agendar demo</a>
-        <a class="sx-btn sx-btn--ghost" href="#datos">Explorar</a>
+    <div class="sx-hero-layout">
+      <div class="sx-panel__content">
+        <img class="sx-brand-lockup" src="assets/orion-hunter-wordmark.png" alt="Orion Works.ai — Data · AI · Automation" width="300" height="220" decoding="async">
+        <p class="sx-kicker">orion-works.ai</p>
+        <h1>Lleva tus datos a una nueva constelación</h1>
+        <p>Conectamos datos e inteligencia artificial para crear soluciones que mejoran decisiones, productividad y experiencia.</p>
+        <div class="sx-actions">
+          <a class="sx-btn" href="#contacto">Agendar demo</a>
+          <a class="sx-btn sx-btn--ghost" href="#datos">Explorar</a>
+        </div>
       </div>
+      <aside class="sx-hero-art" aria-hidden="true">
+        <img src="assets/orion-hunter-mark.png" alt="" width="440" height="610" decoding="async">
+      </aside>
     </div>
   </section>
 
@@ -341,6 +440,7 @@
 
   <section class="sx-panel sx-panel--contact" id="contacto">
     <div class="sx-panel__content">
+      <img class="sx-contact-logo" src="assets/orion-hunter-wordmark.png" alt="Orion Works.ai" width="260" height="190" loading="lazy" decoding="async">
       <p class="sx-kicker">Contacto</p>
       <h2>Tu próximo salto</h2>
       <p>WhatsApp +593 99881 6054 · Email ndpaz7@yahoo.com · Quito, Ecuador · LatAm</p>
@@ -352,7 +452,13 @@
   </section>
 
   <footer class="sx-footer">
-    <div>Orion Works.ai — Intelligent solutions for a data-driven future</div>
+    <div class="sx-footer__brand">
+      <img class="sx-footer__logo" src="assets/orion-hunter-logo.png" alt="Orion Works.ai" width="120" height="80" loading="lazy" decoding="async">
+      <div class="sx-footer__meta">
+        <strong>Orion Works.ai</strong>
+        <span>Data · AI · Automation</span>
+      </div>
+    </div>
     <div><a href="index.html">Comparar versiones</a> · <a href="orion-works-landing-es.html">Ir a V01</a></div>
   </footer>
 
