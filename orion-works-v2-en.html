@@ -65,32 +65,13 @@
       display: inline-flex;
       align-items: center;
       gap: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.95rem;
-      color: #fff;
+      line-height: 0;
     }
-    .sx-nav__brand img {
-      width: 2.65rem;
-      height: auto;
-      filter: none;
-    }
-    .sx-nav__brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.05;
-      gap: 0.1rem;
-    }
-    .sx-nav__brand-text strong {
-      font-size: 0.95rem;
-      letter-spacing: 0.1em;
-    }
-    .sx-nav__brand-text span {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      color: #bdbdbd;
+    .sx-nav__logo {
+      height: 2.85rem;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 2px 10px rgba(0,0,0,0.45));
     }
     .sx-nav__links {
       display: flex;
@@ -340,11 +321,11 @@
       .sx-hero-art {
         order: -1;
         justify-self: center;
-        width: min(260px, 70vw);
+        width: min(320px, 85vw);
         margin-bottom: 0;
-        opacity: 0.9;
+        opacity: 0.95;
       }
-      .sx-nav__brand-text span { display: none; }
+      .sx-nav__logo { height: 2.35rem; }
     }
   </style>
 </head>
@@ -352,11 +333,7 @@
   <div class="sx-sky" aria-hidden="true"></div>
   <nav class="sx-nav" id="sx-nav" aria-label="Primary">
     <a class="sx-nav__brand" href="#top" aria-label="Orion Works.ai">
-      <img src="assets/orion-hunter-mark.png?v=3" alt="" width="42" height="58" decoding="async">
-      <span class="sx-nav__brand-text">
-        <strong>Orion</strong>
-        <span>Works.ai</span>
-      </span>
+      <img class="sx-nav__logo" src="assets/orion-hunter-logo.png?v=4" alt="Orion Works.ai" width="160" height="85" decoding="async">
     </a>
     <div class="sx-nav__links">
       <a href="#data">Data &amp; AI</a>
@@ -389,7 +366,7 @@
         </div>
       </div>
       <aside class="sx-hero-art">
-        <img src="assets/orion-hunter-logo.png?v=3" alt="Orion Works.ai — Data · AI · Automation" width="520" height="300" decoding="async">
+        <img src="assets/orion-hunter-logo.png?v=4" alt="Orion Works.ai — Data · AI · Automation" width="520" height="300" decoding="async">
       </aside>
     </div>
   </section>
@@ -439,7 +416,7 @@
 
   <section class="sx-panel sx-panel--contact" id="contact">
     <div class="sx-panel__content">
-      <img class="sx-contact-logo" src="assets/orion-hunter-logo.png?v=3" alt="Orion Works.ai" width="360" height="207" loading="lazy" decoding="async">
+      <img class="sx-contact-logo" src="assets/orion-hunter-logo.png?v=4" alt="Orion Works.ai" width="360" height="207" loading="lazy" decoding="async">
       <p class="sx-kicker">Contact</p>
       <h2>Your next leap</h2>
       <p>WhatsApp +593 99881 6054 · Email ndpaz7@yahoo.com · Quito, Ecuador · LatAm</p>
@@ -452,7 +429,7 @@
 
   <footer class="sx-footer">
     <div class="sx-footer__brand">
-      <img class="sx-footer__logo" src="assets/orion-hunter-logo.png?v=3" alt="Orion Works.ai" width="160" height="92" loading="lazy" decoding="async">
+      <img class="sx-footer__logo" src="assets/orion-hunter-logo.png?v=4" alt="Orion Works.ai" width="160" height="92" loading="lazy" decoding="async">
       <div class="sx-footer__meta">
         <strong>Orion Works.ai</strong>
         <span>Data · AI · Automation</span>
