@@ -270,6 +270,7 @@
       max-width: 48rem;
     }
     .sx-panel--agents,
+    .sx-panel--data,
     .sx-panel--engage {
       align-items: stretch;
       overflow: hidden;
@@ -666,17 +667,124 @@
   </section>
 
   <section class="sx-panel sx-panel--data" id="datos">
-    <div class="sx-panel__content">
-      <p class="sx-kicker">Plataforma</p>
-      <h2>Datos listos para IA</h2>
-      <p>Arquitecturas lakehouse, gobernanza y pipelines sobre Azure, Databricks y Microsoft Power Platform — orientados a producción, no a demos.</p>
-      <div class="sx-grid">
-        <div class="sx-tile"><strong>Azure &amp; Fabric</strong><span>Integración, seguridad y analítica empresarial.</span></div>
-        <div class="sx-tile"><strong>Databricks</strong><span>Lakehouse, GenAI y pipelines confiables.</span></div>
-        <div class="sx-tile"><strong>Power Platform</strong><span>Apps, automatización y BI conectados a la operación.</span></div>
-      </div>
-      <div class="sx-actions">
-        <a class="sx-btn" href="#agentes">Ver agentes</a>
+    <div class="sx-exp-stage" id="sx-exp-stage">
+      <div class="sx-exp-track">
+        <article class="sx-exp-slide" aria-label="Datos listos para IA">
+          <div class="sx-panel__content">
+            <p class="sx-kicker">Plataforma</p>
+            <h2>Datos listos para IA</h2>
+            <p>Arquitecturas lakehouse, gobernanza y pipelines sobre Azure, Databricks y Microsoft Power Platform — orientados a producción, no a demos.</p>
+            <div class="sx-grid">
+              <div class="sx-tile"><strong>Azure &amp; Fabric</strong><span>Integración, seguridad y analítica empresarial.</span></div>
+              <div class="sx-tile"><strong>Databricks</strong><span>Lakehouse, GenAI y pipelines confiables.</span></div>
+              <div class="sx-tile"><strong>Power Platform</strong><span>Apps, automatización y BI conectados a la operación.</span></div>
+            </div>
+            <div class="sx-actions">
+              <button type="button" class="sx-btn" id="sx-exp-open">Experiencia en proyectos</button>
+              <a class="sx-btn sx-btn--ghost" href="#agentes">Ver agentes</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="sx-exp-slide sx-exp-slide--detail" aria-label="Experiencia en proyectos">
+          <button type="button" class="sx-exp-back" id="sx-exp-back" aria-label="Volver a Datos listos para IA" title="Volver">
+            <span aria-hidden="true">←</span>
+          </button>
+          <div class="sx-exp-panel">
+            <p class="sx-kicker">Trayectoria</p>
+            <h2>Experiencia en proyectos</h2>
+            <p>Selección de proyectos entregados en banca, fondos, energía y servicios sobre Azure, Databricks y Microsoft Power Platform.</p>
+            <div class="sx-exp-table-wrap">
+              <table class="sx-exp-table">
+                <thead>
+                  <tr>
+                    <th>Cliente</th>
+                    <th>Proyecto</th>
+                    <th>Stack</th>
+                    <th>Año</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Diners Club</strong><span class="sx-exp-meta">Financiero · Ecuador</span></td>
+                    <td>Asistente RAG para documentación PMO en Microsoft Teams</td>
+                    <td class="sx-exp-stack">Azure OpenAI · AI Search · Document Intelligence · Functions</td>
+                    <td>2025</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fideval</strong><span class="sx-exp-meta">Fondos · Ecuador</span></td>
+                    <td>Lakehouse Fondos Personas con arquitectura Medallion</td>
+                    <td class="sx-exp-stack">Databricks · Data Lake Gen2 · Data Factory · Power BI</td>
+                    <td>2025</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Produbanco</strong><span class="sx-exp-meta">Banca · Ecuador</span></td>
+                    <td>App de gestión de viajes nacionales e internacionales</td>
+                    <td class="sx-exp-stack">Power Apps · Power Automate · Power BI · SharePoint</td>
+                    <td>2023–24</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Grupo Promerica</strong><span class="sx-exp-meta">Banca regional · LatAm</span></td>
+                    <td>Plataforma de gestión de proyectos estratégicos del grupo</td>
+                    <td class="sx-exp-stack">Power Platform · Azure · Azure DevOps</td>
+                    <td>2023</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Banco de Loja</strong><span class="sx-exp-meta">Banca · Ecuador</span></td>
+                    <td>Migración SharePoint 2013 a SharePoint Online (PWA y docs)</td>
+                    <td class="sx-exp-stack">SharePoint Online · Power Platform</td>
+                    <td>2024</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Banco Internacional</strong><span class="sx-exp-meta">Banca · Ecuador</span></td>
+                    <td>Reportería gerencial de proyectos ágiles desde Azure DevOps</td>
+                    <td class="sx-exp-stack">Azure DevOps · Power BI</td>
+                    <td>2023</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Banesco Panamá</strong><span class="sx-exp-meta">Banca · Panamá</span></td>
+                    <td>Portafolio de proyectos online</td>
+                    <td class="sx-exp-stack">Power Apps · Power Automate · SharePoint · Power BI</td>
+                    <td>2022</td>
+                  </tr>
+                  <tr>
+                    <td><strong>PCR Energy</strong><span class="sx-exp-meta">Energía · Argentina</span></td>
+                    <td>Migración de tableros financieros Qlik View a Power BI</td>
+                    <td class="sx-exp-stack">Power BI · DAX · T-SQL</td>
+                    <td>2022</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Banco Pichincha</strong><span class="sx-exp-meta">Banca · Ecuador</span></td>
+                    <td>Solución BI de indicadores de Administración de Riesgos</td>
+                    <td class="sx-exp-stack">Azure · Power BI</td>
+                    <td>2017</td>
+                  </tr>
+                  <tr>
+                    <td><strong>OCP Ecuador</strong><span class="sx-exp-meta">Energía · Ecuador</span></td>
+                    <td>Seguimiento de obligaciones contractuales</td>
+                    <td class="sx-exp-stack">SharePoint Online · Workflows</td>
+                    <td>2016</td>
+                  </tr>
+                  <tr>
+                    <td><strong>SALUDSA</strong><span class="sx-exp-meta">Seguros · Ecuador</span></td>
+                    <td>Aplicaciones de ventas, compras y fuerza comercial</td>
+                    <td class="sx-exp-stack">.NET · Angular · Dynamics CRM</td>
+                    <td>2019–21</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Logaritmo</strong><span class="sx-exp-meta">Actuarial · Ecuador</span></td>
+                    <td>Gestor documental con clasificación y metadata personalizada</td>
+                    <td class="sx-exp-stack">SharePoint Online</td>
+                    <td>2023</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="sx-actions">
+              <a class="sx-btn" href="#agentes">Ver agentes</a>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -780,124 +888,17 @@
   </section>
 
   <section class="sx-panel sx-panel--engage" id="modalidades">
-    <div class="sx-exp-stage" id="sx-exp-stage">
-      <div class="sx-exp-track">
-        <article class="sx-exp-slide" aria-label="Modalidades">
-          <div class="sx-panel__content">
-            <p class="sx-kicker">Modalidades</p>
-            <h2>Proyectos y paquetes de horas de consultoría</h2>
-            <p>Entregas con alcance y resultados definidos, o paquetes de horas de consultoría para avanzar con flexibilidad según la prioridad del negocio.</p>
-            <div class="sx-grid">
-              <div class="sx-tile"><strong>Proyectos</strong><span>Discovery, diseño, build y salida a producción.</span></div>
-              <div class="sx-tile"><strong>Paquetes de horas de consultoría</strong><span>Capacidad sénior de datos e IA bajo demanda.</span></div>
-              <div class="sx-tile"><strong>Advisory</strong><span>Arquitectura, roadmap y acompañamiento ejecutivo.</span></div>
-            </div>
-            <div class="sx-actions">
-              <button type="button" class="sx-btn" id="sx-exp-open">Experiencia en proyectos</button>
-              <a class="sx-btn sx-btn--ghost" href="#contacto">Hablar con nosotros</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="sx-exp-slide sx-exp-slide--detail" aria-label="Experiencia en proyectos">
-          <button type="button" class="sx-exp-back" id="sx-exp-back" aria-label="Volver a modalidades" title="Volver">
-            <span aria-hidden="true">←</span>
-          </button>
-          <div class="sx-exp-panel">
-            <p class="sx-kicker">Trayectoria</p>
-            <h2>Experiencia en proyectos</h2>
-            <p>Selección de proyectos entregados en banca, fondos, energía y servicios sobre Azure, Databricks y Microsoft Power Platform.</p>
-            <div class="sx-exp-table-wrap">
-              <table class="sx-exp-table">
-                <thead>
-                  <tr>
-                    <th>Cliente</th>
-                    <th>Proyecto</th>
-                    <th>Stack</th>
-                    <th>Año</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Diners Club</strong><span class="sx-exp-meta">Financiero · Ecuador</span></td>
-                    <td>Asistente RAG para documentación PMO en Microsoft Teams</td>
-                    <td class="sx-exp-stack">Azure OpenAI · AI Search · Document Intelligence · Functions</td>
-                    <td>2025</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Fideval</strong><span class="sx-exp-meta">Fondos · Ecuador</span></td>
-                    <td>Lakehouse Fondos Personas con arquitectura Medallion</td>
-                    <td class="sx-exp-stack">Databricks · Data Lake Gen2 · Data Factory · Power BI</td>
-                    <td>2025</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Produbanco</strong><span class="sx-exp-meta">Banca · Ecuador</span></td>
-                    <td>App de gestión de viajes nacionales e internacionales</td>
-                    <td class="sx-exp-stack">Power Apps · Power Automate · Power BI · SharePoint</td>
-                    <td>2023–24</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Grupo Promerica</strong><span class="sx-exp-meta">Banca regional · LatAm</span></td>
-                    <td>Plataforma de gestión de proyectos estratégicos del grupo</td>
-                    <td class="sx-exp-stack">Power Platform · Azure · Azure DevOps</td>
-                    <td>2023</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Banco de Loja</strong><span class="sx-exp-meta">Banca · Ecuador</span></td>
-                    <td>Migración SharePoint 2013 a SharePoint Online (PWA y docs)</td>
-                    <td class="sx-exp-stack">SharePoint Online · Power Platform</td>
-                    <td>2024</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Banco Internacional</strong><span class="sx-exp-meta">Banca · Ecuador</span></td>
-                    <td>Reportería gerencial de proyectos ágiles desde Azure DevOps</td>
-                    <td class="sx-exp-stack">Azure DevOps · Power BI</td>
-                    <td>2023</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Banesco Panamá</strong><span class="sx-exp-meta">Banca · Panamá</span></td>
-                    <td>Portafolio de proyectos online</td>
-                    <td class="sx-exp-stack">Power Apps · Power Automate · SharePoint · Power BI</td>
-                    <td>2022</td>
-                  </tr>
-                  <tr>
-                    <td><strong>PCR Energy</strong><span class="sx-exp-meta">Energía · Argentina</span></td>
-                    <td>Migración de tableros financieros Qlik View a Power BI</td>
-                    <td class="sx-exp-stack">Power BI · DAX · T-SQL</td>
-                    <td>2022</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Banco Pichincha</strong><span class="sx-exp-meta">Banca · Ecuador</span></td>
-                    <td>Solución BI de indicadores de Administración de Riesgos</td>
-                    <td class="sx-exp-stack">Azure · Power BI</td>
-                    <td>2017</td>
-                  </tr>
-                  <tr>
-                    <td><strong>OCP Ecuador</strong><span class="sx-exp-meta">Energía · Ecuador</span></td>
-                    <td>Seguimiento de obligaciones contractuales</td>
-                    <td class="sx-exp-stack">SharePoint Online · Workflows</td>
-                    <td>2016</td>
-                  </tr>
-                  <tr>
-                    <td><strong>SALUDSA</strong><span class="sx-exp-meta">Seguros · Ecuador</span></td>
-                    <td>Aplicaciones de ventas, compras y fuerza comercial</td>
-                    <td class="sx-exp-stack">.NET · Angular · Dynamics CRM</td>
-                    <td>2019–21</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Logaritmo</strong><span class="sx-exp-meta">Actuarial · Ecuador</span></td>
-                    <td>Gestor documental con clasificación y metadata personalizada</td>
-                    <td class="sx-exp-stack">SharePoint Online</td>
-                    <td>2023</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="sx-actions">
-              <a class="sx-btn" href="#contacto">Hablar con nosotros</a>
-            </div>
-          </div>
-        </article>
+    <div class="sx-panel__content">
+      <p class="sx-kicker">Modalidades</p>
+      <h2>Proyectos y paquetes de horas de consultoría</h2>
+      <p>Entregas con alcance y resultados definidos, o paquetes de horas de consultoría para avanzar con flexibilidad según la prioridad del negocio.</p>
+      <div class="sx-grid">
+        <div class="sx-tile"><strong>Proyectos</strong><span>Discovery, diseño, build y salida a producción.</span></div>
+        <div class="sx-tile"><strong>Paquetes de horas de consultoría</strong><span>Capacidad sénior de datos e IA bajo demanda.</span></div>
+        <div class="sx-tile"><strong>Advisory</strong><span>Arquitectura, roadmap y acompañamiento ejecutivo.</span></div>
+      </div>
+      <div class="sx-actions">
+        <a class="sx-btn" href="#contacto">Hablar con nosotros</a>
       </div>
     </div>
   </section>
