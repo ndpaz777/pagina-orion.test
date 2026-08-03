@@ -236,6 +236,7 @@
     }
     .sx-panel--data::before,
     .sx-panel--agents::before,
+    .sx-panel--agents-detail::before,
     .sx-panel--engage::before {
       background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.78) 100%);
     }
@@ -252,6 +253,133 @@
       gap: 0.85rem;
       margin: 1.25rem 0 1.75rem;
       max-width: 48rem;
+    }
+    .sx-agents-detail {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.5rem 2rem;
+      align-items: end;
+      width: min(1180px, calc(100% - 2.5rem));
+      margin: 0 auto 3.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .sx-agents-detail .sx-panel__content {
+      width: auto;
+      margin: 0;
+    }
+    .sx-agent-list {
+      list-style: none;
+      margin: 1rem 0 1.5rem;
+      padding: 0;
+      display: grid;
+      gap: 0.75rem;
+      max-width: 36rem;
+    }
+    .sx-agent-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.85rem;
+      align-items: start;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(20,20,20,0.55);
+      padding: 0.85rem 0.95rem;
+      backdrop-filter: blur(6px);
+    }
+    .sx-agent-list__num {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.35);
+      min-width: 2rem;
+      height: 2rem;
+      display: grid;
+      place-items: center;
+    }
+    .sx-agent-list strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+      color: #fff;
+    }
+    .sx-agent-list p {
+      margin: 0;
+      max-width: none;
+      font-size: 0.88rem;
+      color: #bdbdbd;
+      text-shadow: none;
+    }
+    .sx-agents-viz {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.45);
+      padding: 1rem 0.85rem 0.85rem;
+      backdrop-filter: blur(6px);
+    }
+    .sx-agents-viz__label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #c4c4c4;
+      margin-bottom: 0.65rem;
+    }
+    .sx-agents-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .sx-agents-svg .sx-edge {
+      fill: none;
+      stroke: rgba(255,255,255,0.28);
+      stroke-width: 1.5;
+    }
+    .sx-agents-svg .sx-edge-flow {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 1.5;
+      stroke-dasharray: 6 10;
+      animation: sxFlow 2.4s linear infinite;
+    }
+    .sx-agents-svg .sx-node-core {
+      fill: #111;
+      stroke: #fff;
+      stroke-width: 2;
+    }
+    .sx-agents-svg .sx-node-agent {
+      fill: rgba(255,255,255,0.06);
+      stroke: rgba(255,255,255,0.7);
+      stroke-width: 1.5;
+    }
+    .sx-agents-svg .sx-node-label {
+      fill: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      text-anchor: middle;
+      font-family: Inter, Helvetica, Arial, sans-serif;
+    }
+    .sx-agents-svg .sx-node-sub {
+      fill: #a3a3a3;
+      font-size: 9px;
+      text-anchor: middle;
+      font-family: Inter, Helvetica, Arial, sans-serif;
+    }
+    .sx-agents-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+    .sx-agents-legend span {
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #cfcfcf;
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 0.28rem 0.5rem;
+    }
+    @keyframes sxFlow {
+      to { stroke-dashoffset: -32; }
     }
     .sx-tile {
       border: 1px solid rgba(255,255,255,0.18);
@@ -314,6 +442,7 @@
       .sx-nav__links { display: none; }
       .sx-grid { grid-template-columns: 1fr; }
       .sx-panel__content { margin-bottom: 3rem; }
+      .sx-agents-detail { grid-template-columns: 1fr; margin-bottom: 2.5rem; }
       .sx-hero-art {
         position: relative;
         top: auto;
@@ -399,8 +528,86 @@
       <h2>Orquestación multiagente</h2>
       <p>Supervisor + agentes especializados (RAG, Genie, automatización) con control, latencia y trazabilidad para entornos reales.</p>
       <div class="sx-actions">
-        <a class="sx-btn" href="#modalidades">Cómo contratarnos</a>
+        <a class="sx-btn" href="#agentes-detalle">Ver multiagentes</a>
+        <a class="sx-btn sx-btn--ghost" href="#modalidades">Cómo contratarnos</a>
       </div>
+    </div>
+  </section>
+
+  <section class="sx-panel sx-panel--agents-detail" id="agentes-detalle">
+    <div class="sx-agents-detail">
+      <div class="sx-panel__content">
+        <p class="sx-kicker">Detalle multiagente</p>
+        <h2>Los agentes en producción</h2>
+        <p>Diseñamos supervisores y agentes especializados que consultan datos, documentos y sistemas de negocio con Azure AI Foundry, Databricks y Copilot Studio.</p>
+        <ul class="sx-agent-list">
+          <li>
+            <span class="sx-agent-list__num">01</span>
+            <div>
+              <strong>Supervisor multiagente</strong>
+              <p>Coordina especialistas, enruta la consulta y consolida la respuesta con trazabilidad.</p>
+            </div>
+          </li>
+          <li>
+            <span class="sx-agent-list__num">02</span>
+            <div>
+              <strong>Agentes RAG y Genie</strong>
+              <p>Respuestas sobre documentos, lakehouse y espacios Genie conectados al negocio.</p>
+            </div>
+          </li>
+          <li>
+            <span class="sx-agent-list__num">03</span>
+            <div>
+              <strong>Copilot Studio y Teams</strong>
+              <p>Canales de conversación en Microsoft 365 con gobernanza y control de acceso.</p>
+            </div>
+          </li>
+          <li>
+            <span class="sx-agent-list__num">04</span>
+            <div>
+              <strong>Herramientas y acciones</strong>
+              <p>Integración con APIs, Azure Functions, Power Automate y flujos operativos.</p>
+            </div>
+          </li>
+        </ul>
+        <div class="sx-actions">
+          <a class="sx-btn" href="#modalidades">Ver modalidades</a>
+        </div>
+      </div>
+      <aside class="sx-agents-viz" aria-label="Diagrama de orquestación de agentes">
+        <div class="sx-agents-viz__label">Orion · Multiagente</div>
+        <svg class="sx-agents-svg" viewBox="0 0 520 400" role="img">
+          <path class="sx-edge" d="M260 200 L120 90" />
+          <path class="sx-edge" d="M260 200 L400 90" />
+          <path class="sx-edge" d="M260 200 L110 300" />
+          <path class="sx-edge" d="M260 200 L410 300" />
+          <path class="sx-edge-flow" d="M260 200 L120 90" />
+          <path class="sx-edge-flow" d="M260 200 L400 90" />
+          <path class="sx-edge-flow" d="M260 200 L110 300" />
+          <path class="sx-edge-flow" d="M260 200 L410 300" />
+          <circle class="sx-node-core" cx="260" cy="200" r="38" />
+          <text class="sx-node-label" x="260" y="196">Supervisor</text>
+          <text class="sx-node-sub" x="260" y="212">orquestador</text>
+          <circle class="sx-node-agent" cx="120" cy="90" r="34" />
+          <text class="sx-node-label" x="120" y="86">Ventas</text>
+          <text class="sx-node-sub" x="120" y="102">RAG</text>
+          <circle class="sx-node-agent" cx="400" cy="90" r="34" />
+          <text class="sx-node-label" x="400" y="86">Documentos</text>
+          <text class="sx-node-sub" x="400" y="102">PMO</text>
+          <circle class="sx-node-agent" cx="110" cy="300" r="34" />
+          <text class="sx-node-label" x="110" y="296">RRHH</text>
+          <text class="sx-node-sub" x="110" y="312">conocimiento</text>
+          <circle class="sx-node-agent" cx="410" cy="300" r="34" />
+          <text class="sx-node-label" x="410" y="296">Datos</text>
+          <text class="sx-node-sub" x="410" y="312">Genie</text>
+        </svg>
+        <div class="sx-agents-legend">
+          <span>Azure AI Foundry</span>
+          <span>Databricks Agents</span>
+          <span>Copilot Studio</span>
+          <span>Microsoft Teams</span>
+        </div>
+      </aside>
     </div>
   </section>
 
