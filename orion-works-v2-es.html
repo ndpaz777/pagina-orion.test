@@ -546,7 +546,117 @@
       line-height: 1.35;
     }
 
-    .sx-footer {
+    .sx-certs {
+      position: relative;
+      z-index: 1;
+      padding: 2.75rem 0 2rem;
+      overflow: hidden;
+      scroll-margin-top: 4.5rem;
+    }
+    .sx-certs::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%);
+      pointer-events: none;
+    }
+    .sx-certs__head {
+      position: relative;
+      z-index: 2;
+      width: min(1100px, calc(100% - 2.5rem));
+      margin: 0 auto 1.5rem;
+    }
+    .sx-certs__head h2 {
+      margin: 0 0 0.75rem;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 0.95;
+      text-transform: uppercase;
+      max-width: 18.5ch;
+      font-size: clamp(1.6rem, 4.2vw, 2.8rem);
+      color: #fff;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.55);
+    }
+    .sx-certs__head p {
+      margin: 0;
+      max-width: 36rem;
+      color: #cfcfcf;
+      font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+      line-height: 1.5;
+    }
+    .sx-certs-reel {
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+    }
+    .sx-certs-track {
+      display: flex;
+      gap: 0.85rem;
+      width: max-content;
+      animation: sxReel 38s linear infinite;
+      padding: 0.15rem 0 0.35rem;
+    }
+    .sx-certs-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes sxReel {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .sx-cert {
+      flex: 0 0 auto;
+      width: min(270px, 78vw);
+      padding: 1rem 1.05rem;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(20,20,20,0.7);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.85rem;
+      align-items: center;
+      backdrop-filter: blur(6px);
+    }
+    .sx-cert__mark {
+      width: 3.1rem;
+      height: 3.1rem;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.18);
+      flex-shrink: 0;
+    }
+    .sx-cert__mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .sx-cert__vendor {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c4c4c4;
+      margin-bottom: 0.2rem;
+    }
+    .sx-cert__name {
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: #fff;
+    }
+    .sx-cert__code {
+      display: block;
+      margin-top: 0.22rem;
+      font-size: 0.74rem;
+      color: #9a9a9a;
+    }
+
       position: relative;
       z-index: 1;
       padding: 1.5rem clamp(1rem, 3vw, 2.5rem) 2rem;
@@ -634,6 +744,7 @@
       <a href="#datos">Datos &amp; IA</a>
       <a href="#agentes">Agentes</a>
       <a href="#modalidades">Modalidades</a>
+      <a href="#certificaciones">Certificaciones</a>
       <a href="#contacto">Contacto</a>
     </div>
     <div style="display:flex;align-items:center;gap:0.65rem">
@@ -881,6 +992,130 @@
       </div>
       <div class="sx-actions">
         <a class="sx-btn" href="#contacto">Hablar con nosotros</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sx-certs" id="certificaciones" aria-label="Certificaciones">
+    <div class="sx-certs__head">
+      <p class="sx-kicker">Certificaciones</p>
+      <h2>Credenciales Azure y Databricks</h2>
+      <p>Formación oficial que respalda la entrega de plataformas de datos, DevOps e inteligencia artificial.</p>
+    </div>
+    <div class="sx-certs-reel">
+      <div class="sx-certs-track">
+        <article class="sx-cert">
+          <span class="sx-cert__mark"><img src="assets/badges/az-400.png" alt="Badge Microsoft DevOps Engineer Expert" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Microsoft Azure</span>
+            <p class="sx-cert__name">DevOps Engineer Expert</p>
+            <span class="sx-cert__code">AZ-400</span>
+          </div>
+        </article>
+        <article class="sx-cert">
+          <span class="sx-cert__mark"><img src="assets/badges/az-104.svg" alt="Badge Microsoft Azure Administrator Associate" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Microsoft Azure</span>
+            <p class="sx-cert__name">Administrator Associate</p>
+            <span class="sx-cert__code">AZ-104</span>
+          </div>
+        </article>
+        <article class="sx-cert">
+          <span class="sx-cert__mark"><img src="assets/badges/pl-300.svg" alt="Badge Microsoft Power BI Data Analyst Associate" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Microsoft</span>
+            <p class="sx-cert__name">Power BI Data Analyst Associate</p>
+            <span class="sx-cert__code">PL-300</span>
+          </div>
+        </article>
+        <article class="sx-cert">
+          <span class="sx-cert__mark"><img src="assets/badges/dp-600.svg" alt="Badge Microsoft Fabric Analytics" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Microsoft Fabric</span>
+            <p class="sx-cert__name">Analytics Solutions</p>
+            <span class="sx-cert__code">DP-600</span>
+          </div>
+        </article>
+        <article class="sx-cert">
+          <span class="sx-cert__mark"><img src="assets/badges/dp-700.svg" alt="Badge Microsoft Fabric Data Engineering" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Microsoft Fabric</span>
+            <p class="sx-cert__name">Data Engineering Solutions</p>
+            <span class="sx-cert__code">DP-700</span>
+          </div>
+        </article>
+        <article class="sx-cert">
+          <span class="sx-cert__mark"><img src="assets/badges/dbx-dea.png" alt="Badge Databricks Data Engineer Associate" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Databricks</span>
+            <p class="sx-cert__name">Data Engineer Associate</p>
+            <span class="sx-cert__code">Certificación oficial</span>
+          </div>
+        </article>
+        <article class="sx-cert">
+          <span class="sx-cert__mark"><img src="assets/badges/dbx-genai.png" alt="Badge Databricks Generative AI Engineer Associate" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Databricks</span>
+            <p class="sx-cert__name">Generative AI Engineer Associate</p>
+            <span class="sx-cert__code">Certificación oficial</span>
+          </div>
+        </article>
+        <article class="sx-cert" aria-hidden="true">
+          <span class="sx-cert__mark"><img src="assets/badges/az-400.png" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Microsoft Azure</span>
+            <p class="sx-cert__name">DevOps Engineer Expert</p>
+            <span class="sx-cert__code">AZ-400</span>
+          </div>
+        </article>
+        <article class="sx-cert" aria-hidden="true">
+          <span class="sx-cert__mark"><img src="assets/badges/az-104.svg" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Microsoft Azure</span>
+            <p class="sx-cert__name">Administrator Associate</p>
+            <span class="sx-cert__code">AZ-104</span>
+          </div>
+        </article>
+        <article class="sx-cert" aria-hidden="true">
+          <span class="sx-cert__mark"><img src="assets/badges/pl-300.svg" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Microsoft</span>
+            <p class="sx-cert__name">Power BI Data Analyst Associate</p>
+            <span class="sx-cert__code">PL-300</span>
+          </div>
+        </article>
+        <article class="sx-cert" aria-hidden="true">
+          <span class="sx-cert__mark"><img src="assets/badges/dp-600.svg" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Microsoft Fabric</span>
+            <p class="sx-cert__name">Analytics Solutions</p>
+            <span class="sx-cert__code">DP-600</span>
+          </div>
+        </article>
+        <article class="sx-cert" aria-hidden="true">
+          <span class="sx-cert__mark"><img src="assets/badges/dp-700.svg" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Microsoft Fabric</span>
+            <p class="sx-cert__name">Data Engineering Solutions</p>
+            <span class="sx-cert__code">DP-700</span>
+          </div>
+        </article>
+        <article class="sx-cert" aria-hidden="true">
+          <span class="sx-cert__mark"><img src="assets/badges/dbx-dea.png" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Databricks</span>
+            <p class="sx-cert__name">Data Engineer Associate</p>
+            <span class="sx-cert__code">Certificación oficial</span>
+          </div>
+        </article>
+        <article class="sx-cert" aria-hidden="true">
+          <span class="sx-cert__mark"><img src="assets/badges/dbx-genai.png" alt="" width="52" height="52" loading="lazy"></span>
+          <div>
+            <span class="sx-cert__vendor">Databricks</span>
+            <p class="sx-cert__name">Generative AI Engineer Associate</p>
+            <span class="sx-cert__code">Certificación oficial</span>
+          </div>
+        </article>
       </div>
     </div>
   </section>
