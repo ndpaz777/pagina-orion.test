@@ -269,29 +269,34 @@
       margin: 1.25rem 0 1.75rem;
       max-width: 48rem;
     }
-    .sx-panel--agents {
+    .sx-panel--agents,
+    .sx-panel--engage {
       align-items: stretch;
       overflow: hidden;
       padding: 2.75rem 0 1.5rem;
     }
-    .sx-agents-stage {
+    .sx-agents-stage,
+    .sx-exp-stage {
       position: relative;
       z-index: 2;
       width: 100%;
       min-height: 0;
       overflow: hidden;
     }
-    .sx-agents-track {
+    .sx-agents-track,
+    .sx-exp-track {
       display: flex;
       width: 200%;
       min-height: 0;
       transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: transform;
     }
-    .sx-agents-stage.is-detail .sx-agents-track {
+    .sx-agents-stage.is-detail .sx-agents-track,
+    .sx-exp-stage.is-detail .sx-exp-track {
       transform: translateX(-50%);
     }
-    .sx-agents-slide {
+    .sx-agents-slide,
+    .sx-exp-slide {
       width: 50%;
       flex: 0 0 50%;
       min-height: 0;
@@ -300,16 +305,19 @@
       position: relative;
       box-sizing: border-box;
     }
-    .sx-agents-slide > .sx-panel__content {
+    .sx-agents-slide > .sx-panel__content,
+    .sx-exp-slide > .sx-panel__content {
       width: min(1100px, calc(100% - 2.5rem));
       margin: 0 auto;
     }
-    .sx-agents-slide--detail {
+    .sx-agents-slide--detail,
+    .sx-exp-slide--detail {
       align-items: flex-start;
       padding-left: 3.5rem;
       padding-right: 1.25rem;
     }
-    .sx-agents-back {
+    .sx-agents-back,
+    .sx-exp-back {
       position: absolute;
       left: clamp(0.65rem, 2vw, 1.35rem);
       top: 0.35rem;
@@ -327,9 +335,68 @@
       place-items: center;
       transition: background 0.2s ease, color 0.2s ease;
     }
-    .sx-agents-back:hover {
+    .sx-agents-back:hover,
+    .sx-exp-back:hover {
       background: #fff;
       color: #000;
+    }
+    .sx-exp-panel {
+      width: min(1100px, calc(100% - 2.5rem));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .sx-exp-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 1rem 0 1.25rem;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.35);
+    }
+    .sx-exp-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 640px;
+    }
+    .sx-exp-table th,
+    .sx-exp-table td {
+      padding: 0.7rem 0.85rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .sx-exp-table th {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c4c4c4;
+      background: rgba(255,255,255,0.06);
+      white-space: nowrap;
+    }
+    .sx-exp-table td {
+      font-size: 0.88rem;
+      color: #cfcfcf;
+      line-height: 1.4;
+    }
+    .sx-exp-table tr:last-child td { border-bottom: 0; }
+    .sx-exp-table tbody tr:hover td {
+      background: rgba(255,255,255,0.04);
+    }
+    .sx-exp-table strong {
+      display: block;
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+    }
+    .sx-exp-table .sx-exp-meta {
+      font-size: 0.78rem;
+      color: #9a9a9a;
+    }
+    .sx-exp-table .sx-exp-stack {
+      font-size: 0.8rem;
+      color: #bdbdbd;
     }
     .sx-agents-detail {
       display: grid;
@@ -522,8 +589,10 @@
       .sx-panel { padding: 2.5rem 0 1.25rem; }
       .sx-panel__content { margin-top: 0; margin-bottom: 0; }
       .sx-agents-detail { grid-template-columns: 1fr; margin-top: 0; margin-bottom: 0; padding-block: 0; }
-      .sx-agents-slide--detail { padding-left: 3.25rem; align-items: flex-start; }
-      .sx-agents-back { top: 1.25rem; transform: none; }
+      .sx-agents-slide--detail,
+      .sx-exp-slide--detail { padding-left: 3.25rem; align-items: flex-start; }
+      .sx-agents-back,
+      .sx-exp-back { top: 1.25rem; transform: none; }
       .sx-hero-art {
         position: relative;
         top: auto;
@@ -711,17 +780,124 @@
   </section>
 
   <section class="sx-panel sx-panel--engage" id="modalidades">
-    <div class="sx-panel__content">
-      <p class="sx-kicker">Modalidades</p>
-      <h2>Proyectos y paquetes de horas de consultoría</h2>
-      <p>Entregas con alcance y resultados definidos, o paquetes de horas de consultoría para avanzar con flexibilidad según la prioridad del negocio.</p>
-      <div class="sx-grid">
-        <div class="sx-tile"><strong>Proyectos</strong><span>Discovery, diseño, build y salida a producción.</span></div>
-        <div class="sx-tile"><strong>Paquetes de horas de consultoría</strong><span>Capacidad sénior de datos e IA bajo demanda.</span></div>
-        <div class="sx-tile"><strong>Advisory</strong><span>Arquitectura, roadmap y acompañamiento ejecutivo.</span></div>
-      </div>
-      <div class="sx-actions">
-        <a class="sx-btn" href="#contacto">Hablar con nosotros</a>
+    <div class="sx-exp-stage" id="sx-exp-stage">
+      <div class="sx-exp-track">
+        <article class="sx-exp-slide" aria-label="Modalidades">
+          <div class="sx-panel__content">
+            <p class="sx-kicker">Modalidades</p>
+            <h2>Proyectos y paquetes de horas de consultoría</h2>
+            <p>Entregas con alcance y resultados definidos, o paquetes de horas de consultoría para avanzar con flexibilidad según la prioridad del negocio.</p>
+            <div class="sx-grid">
+              <div class="sx-tile"><strong>Proyectos</strong><span>Discovery, diseño, build y salida a producción.</span></div>
+              <div class="sx-tile"><strong>Paquetes de horas de consultoría</strong><span>Capacidad sénior de datos e IA bajo demanda.</span></div>
+              <div class="sx-tile"><strong>Advisory</strong><span>Arquitectura, roadmap y acompañamiento ejecutivo.</span></div>
+            </div>
+            <div class="sx-actions">
+              <button type="button" class="sx-btn" id="sx-exp-open">Experiencia en proyectos</button>
+              <a class="sx-btn sx-btn--ghost" href="#contacto">Hablar con nosotros</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="sx-exp-slide sx-exp-slide--detail" aria-label="Experiencia en proyectos">
+          <button type="button" class="sx-exp-back" id="sx-exp-back" aria-label="Volver a modalidades" title="Volver">
+            <span aria-hidden="true">←</span>
+          </button>
+          <div class="sx-exp-panel">
+            <p class="sx-kicker">Trayectoria</p>
+            <h2>Experiencia en proyectos</h2>
+            <p>Selección de proyectos entregados en banca, fondos, energía y servicios sobre Azure, Databricks y Microsoft Power Platform.</p>
+            <div class="sx-exp-table-wrap">
+              <table class="sx-exp-table">
+                <thead>
+                  <tr>
+                    <th>Cliente</th>
+                    <th>Proyecto</th>
+                    <th>Stack</th>
+                    <th>Año</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Diners Club</strong><span class="sx-exp-meta">Financiero · Ecuador</span></td>
+                    <td>Asistente RAG para documentación PMO en Microsoft Teams</td>
+                    <td class="sx-exp-stack">Azure OpenAI · AI Search · Document Intelligence · Functions</td>
+                    <td>2025</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fideval</strong><span class="sx-exp-meta">Fondos · Ecuador</span></td>
+                    <td>Lakehouse Fondos Personas con arquitectura Medallion</td>
+                    <td class="sx-exp-stack">Databricks · Data Lake Gen2 · Data Factory · Power BI</td>
+                    <td>2025</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Produbanco</strong><span class="sx-exp-meta">Banca · Ecuador</span></td>
+                    <td>App de gestión de viajes nacionales e internacionales</td>
+                    <td class="sx-exp-stack">Power Apps · Power Automate · Power BI · SharePoint</td>
+                    <td>2023–24</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Grupo Promerica</strong><span class="sx-exp-meta">Banca regional · LatAm</span></td>
+                    <td>Plataforma de gestión de proyectos estratégicos del grupo</td>
+                    <td class="sx-exp-stack">Power Platform · Azure · Azure DevOps</td>
+                    <td>2023</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Banco de Loja</strong><span class="sx-exp-meta">Banca · Ecuador</span></td>
+                    <td>Migración SharePoint 2013 a SharePoint Online (PWA y docs)</td>
+                    <td class="sx-exp-stack">SharePoint Online · Power Platform</td>
+                    <td>2024</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Banco Internacional</strong><span class="sx-exp-meta">Banca · Ecuador</span></td>
+                    <td>Reportería gerencial de proyectos ágiles desde Azure DevOps</td>
+                    <td class="sx-exp-stack">Azure DevOps · Power BI</td>
+                    <td>2023</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Banesco Panamá</strong><span class="sx-exp-meta">Banca · Panamá</span></td>
+                    <td>Portafolio de proyectos online</td>
+                    <td class="sx-exp-stack">Power Apps · Power Automate · SharePoint · Power BI</td>
+                    <td>2022</td>
+                  </tr>
+                  <tr>
+                    <td><strong>PCR Energy</strong><span class="sx-exp-meta">Energía · Argentina</span></td>
+                    <td>Migración de tableros financieros Qlik View a Power BI</td>
+                    <td class="sx-exp-stack">Power BI · DAX · T-SQL</td>
+                    <td>2022</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Banco Pichincha</strong><span class="sx-exp-meta">Banca · Ecuador</span></td>
+                    <td>Solución BI de indicadores de Administración de Riesgos</td>
+                    <td class="sx-exp-stack">Azure · Power BI</td>
+                    <td>2017</td>
+                  </tr>
+                  <tr>
+                    <td><strong>OCP Ecuador</strong><span class="sx-exp-meta">Energía · Ecuador</span></td>
+                    <td>Seguimiento de obligaciones contractuales</td>
+                    <td class="sx-exp-stack">SharePoint Online · Workflows</td>
+                    <td>2016</td>
+                  </tr>
+                  <tr>
+                    <td><strong>SALUDSA</strong><span class="sx-exp-meta">Seguros · Ecuador</span></td>
+                    <td>Aplicaciones de ventas, compras y fuerza comercial</td>
+                    <td class="sx-exp-stack">.NET · Angular · Dynamics CRM</td>
+                    <td>2019–21</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Logaritmo</strong><span class="sx-exp-meta">Actuarial · Ecuador</span></td>
+                    <td>Gestor documental con clasificación y metadata personalizada</td>
+                    <td class="sx-exp-stack">SharePoint Online</td>
+                    <td>2023</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="sx-actions">
+              <a class="sx-btn" href="#contacto">Hablar con nosotros</a>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -772,6 +948,20 @@
     if (stage && backBtn) {
       backBtn.addEventListener("click", function () {
         stage.classList.remove("is-detail");
+      });
+    }
+
+    var expStage = document.getElementById("sx-exp-stage");
+    var expOpen = document.getElementById("sx-exp-open");
+    var expBack = document.getElementById("sx-exp-back");
+    if (expStage && expOpen) {
+      expOpen.addEventListener("click", function () {
+        expStage.classList.add("is-detail");
+      });
+    }
+    if (expStage && expBack) {
+      expBack.addEventListener("click", function () {
+        expStage.classList.remove("is-detail");
       });
     }
   })();
