@@ -223,6 +223,8 @@
       color: #fff;
       background: rgba(0,0,0,0.25);
       transition: background 0.2s ease, color 0.2s ease;
+      font-family: inherit;
+      cursor: pointer;
     }
     .sx-btn:hover { background: #fff; color: #000; }
     .sx-btn--ghost {
@@ -254,15 +256,81 @@
       margin: 1.25rem 0 1.75rem;
       max-width: 48rem;
     }
+    .sx-panel--agents {
+      align-items: stretch;
+      overflow: hidden;
+      padding: 0;
+    }
+    .sx-agents-stage {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow: hidden;
+    }
+    .sx-agents-track {
+      display: flex;
+      width: 200%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+    .sx-agents-stage.is-detail .sx-agents-track {
+      transform: translateX(-50%);
+    }
+    .sx-agents-slide {
+      width: 50%;
+      flex: 0 0 50%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .sx-agents-slide > .sx-panel__content {
+      width: min(1100px, calc(100% - 2.5rem));
+      margin: 0 auto 4.5rem;
+    }
+    .sx-agents-slide--detail {
+      align-items: center;
+      padding-left: 3.5rem;
+      padding-right: 1.25rem;
+    }
+    .sx-agents-back {
+      position: absolute;
+      left: clamp(0.65rem, 2vw, 1.35rem);
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 6;
+      width: 3rem;
+      height: 3rem;
+      border: 2px solid #fff;
+      background: rgba(0,0,0,0.4);
+      color: #fff;
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .sx-agents-back:hover {
+      background: #fff;
+      color: #000;
+    }
     .sx-agents-detail {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 1.5rem 2rem;
-      align-items: end;
-      width: min(1180px, calc(100% - 2.5rem));
-      margin: 0 auto 3.5rem;
+      align-items: center;
+      width: min(1180px, 100%);
+      margin: 0 auto;
       position: relative;
       z-index: 2;
+      padding-block: 5rem 3rem;
     }
     .sx-agents-detail .sx-panel__content {
       width: auto;
@@ -442,7 +510,9 @@
       .sx-nav__links { display: none; }
       .sx-grid { grid-template-columns: 1fr; }
       .sx-panel__content { margin-bottom: 3rem; }
-      .sx-agents-detail { grid-template-columns: 1fr; margin-bottom: 2.5rem; }
+      .sx-agents-detail { grid-template-columns: 1fr; margin-bottom: 0; padding-block: 4.5rem 2rem; }
+      .sx-agents-slide--detail { padding-left: 3.25rem; align-items: flex-start; }
+      .sx-agents-back { top: 6.5rem; transform: none; }
       .sx-hero-art {
         position: relative;
         top: auto;
@@ -523,91 +593,100 @@
   </section>
 
   <section class="sx-panel sx-panel--agents" id="agents">
-    <div class="sx-panel__content">
-      <p class="sx-kicker">AI Agents</p>
-      <h2>Multi-agent orchestration</h2>
-      <p>Supervisor plus specialized agents (RAG, Genie, automation) with control, latency, and traceability for real environments.</p>
-      <div class="sx-actions">
-        <a class="sx-btn" href="#agents-detail">See multi-agents</a>
-        <a class="sx-btn sx-btn--ghost" href="#engagement">How we engage</a>
-      </div>
-    </div>
-  </section>
+    <div class="sx-agents-stage" id="sx-agents-stage">
+      <div class="sx-agents-track">
+        <article class="sx-agents-slide" aria-label="Multi-agent governance">
+          <div class="sx-panel__content">
+            <p class="sx-kicker">AI Agents</p>
+            <h2>Multi-agent governance</h2>
+            <p>Supervisor plus specialized agents (RAG, Genie, automation) with control, latency, and traceability for real environments.</p>
+            <div class="sx-actions">
+              <button type="button" class="sx-btn" id="sx-agents-open">See Orion Works Agents</button>
+              <a class="sx-btn sx-btn--ghost" href="#engagement">How we engage</a>
+            </div>
+          </div>
+        </article>
 
-  <section class="sx-panel sx-panel--agents-detail" id="agents-detail">
-    <div class="sx-agents-detail">
-      <div class="sx-panel__content">
-        <p class="sx-kicker">Multi-agent detail</p>
-        <h2>Agents in production</h2>
-        <p>We design supervisors and specialist agents that query data, documents, and business systems with Azure AI Foundry, Databricks, and Copilot Studio.</p>
-        <ul class="sx-agent-list">
-          <li>
-            <span class="sx-agent-list__num">01</span>
-            <div>
-              <strong>Multi-agent supervisor</strong>
-              <p>Coordinates specialists, routes the query, and consolidates the answer with full traceability.</p>
+        <article class="sx-agents-slide sx-agents-slide--detail" aria-label="Custom agents">
+          <button type="button" class="sx-agents-back" id="sx-agents-back" aria-label="Back to Multi-agent governance" title="Back">
+            <span aria-hidden="true">←</span>
+          </button>
+          <div class="sx-agents-detail">
+            <div class="sx-panel__content">
+              <p class="sx-kicker">Multi-agent detail</p>
+              <h2>Custom agents</h2>
+              <p>We design supervisors and specialist agents that query data, documents, and business systems with Azure AI Foundry, Databricks, and Copilot Studio.</p>
+              <ul class="sx-agent-list">
+                <li>
+                  <span class="sx-agent-list__num">01</span>
+                  <div>
+                    <strong>Multi-agent supervisor</strong>
+                    <p>Coordinates specialists, routes the query, and consolidates the answer with full traceability.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="sx-agent-list__num">02</span>
+                  <div>
+                    <strong>RAG and Genie agents</strong>
+                    <p>Answers over documents, lakehouse data, and Genie Spaces connected to the business.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="sx-agent-list__num">03</span>
+                  <div>
+                    <strong>Copilot Studio and Teams</strong>
+                    <p>Conversational channels in Microsoft 365 with governance and access control.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="sx-agent-list__num">04</span>
+                  <div>
+                    <strong>Tools and actions</strong>
+                    <p>Integration with APIs, Azure Functions, Power Automate, and operational workflows.</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="sx-actions">
+                <a class="sx-btn" href="#engagement">See engagement models</a>
+              </div>
             </div>
-          </li>
-          <li>
-            <span class="sx-agent-list__num">02</span>
-            <div>
-              <strong>RAG and Genie agents</strong>
-              <p>Answers over documents, lakehouse data, and Genie Spaces connected to the business.</p>
-            </div>
-          </li>
-          <li>
-            <span class="sx-agent-list__num">03</span>
-            <div>
-              <strong>Copilot Studio and Teams</strong>
-              <p>Conversational channels in Microsoft 365 with governance and access control.</p>
-            </div>
-          </li>
-          <li>
-            <span class="sx-agent-list__num">04</span>
-            <div>
-              <strong>Tools and actions</strong>
-              <p>Integration with APIs, Azure Functions, Power Automate, and operational workflows.</p>
-            </div>
-          </li>
-        </ul>
-        <div class="sx-actions">
-          <a class="sx-btn" href="#engagement">See engagement models</a>
-        </div>
+            <aside class="sx-agents-viz" aria-label="Agent orchestration diagram">
+              <div class="sx-agents-viz__label">Orion · Multi-agent</div>
+              <svg class="sx-agents-svg" viewBox="0 0 520 400" role="img">
+                <path class="sx-edge" d="M260 200 L120 90" />
+                <path class="sx-edge" d="M260 200 L400 90" />
+                <path class="sx-edge" d="M260 200 L110 300" />
+                <path class="sx-edge" d="M260 200 L410 300" />
+                <path class="sx-edge-flow" d="M260 200 L120 90" />
+                <path class="sx-edge-flow" d="M260 200 L400 90" />
+                <path class="sx-edge-flow" d="M260 200 L110 300" />
+                <path class="sx-edge-flow" d="M260 200 L410 300" />
+                <circle class="sx-node-core" cx="260" cy="200" r="38" />
+                <text class="sx-node-label" x="260" y="196">Supervisor</text>
+                <text class="sx-node-sub" x="260" y="212">orchestrator</text>
+                <circle class="sx-node-agent" cx="120" cy="90" r="34" />
+                <text class="sx-node-label" x="120" y="86">Sales</text>
+                <text class="sx-node-sub" x="120" y="102">RAG</text>
+                <circle class="sx-node-agent" cx="400" cy="90" r="34" />
+                <text class="sx-node-label" x="400" y="86">Documents</text>
+                <text class="sx-node-sub" x="400" y="102">PMO</text>
+                <circle class="sx-node-agent" cx="110" cy="300" r="34" />
+                <text class="sx-node-label" x="110" y="296">HR</text>
+                <text class="sx-node-sub" x="110" y="312">knowledge</text>
+                <circle class="sx-node-agent" cx="410" cy="300" r="34" />
+                <text class="sx-node-label" x="410" y="296">Data</text>
+                <text class="sx-node-sub" x="410" y="312">Genie</text>
+              </svg>
+              <div class="sx-agents-legend">
+                <span>Azure AI Foundry</span>
+                <span>Databricks Agents</span>
+                <span>Copilot Studio</span>
+                <span>Microsoft Teams</span>
+              </div>
+            </aside>
+          </div>
+        </article>
       </div>
-      <aside class="sx-agents-viz" aria-label="Agent orchestration diagram">
-        <div class="sx-agents-viz__label">Orion · Multi-agent</div>
-        <svg class="sx-agents-svg" viewBox="0 0 520 400" role="img">
-          <path class="sx-edge" d="M260 200 L120 90" />
-          <path class="sx-edge" d="M260 200 L400 90" />
-          <path class="sx-edge" d="M260 200 L110 300" />
-          <path class="sx-edge" d="M260 200 L410 300" />
-          <path class="sx-edge-flow" d="M260 200 L120 90" />
-          <path class="sx-edge-flow" d="M260 200 L400 90" />
-          <path class="sx-edge-flow" d="M260 200 L110 300" />
-          <path class="sx-edge-flow" d="M260 200 L410 300" />
-          <circle class="sx-node-core" cx="260" cy="200" r="38" />
-          <text class="sx-node-label" x="260" y="196">Supervisor</text>
-          <text class="sx-node-sub" x="260" y="212">orchestrator</text>
-          <circle class="sx-node-agent" cx="120" cy="90" r="34" />
-          <text class="sx-node-label" x="120" y="86">Sales</text>
-          <text class="sx-node-sub" x="120" y="102">RAG</text>
-          <circle class="sx-node-agent" cx="400" cy="90" r="34" />
-          <text class="sx-node-label" x="400" y="86">Documents</text>
-          <text class="sx-node-sub" x="400" y="102">PMO</text>
-          <circle class="sx-node-agent" cx="110" cy="300" r="34" />
-          <text class="sx-node-label" x="110" y="296">HR</text>
-          <text class="sx-node-sub" x="110" y="312">knowledge</text>
-          <circle class="sx-node-agent" cx="410" cy="300" r="34" />
-          <text class="sx-node-label" x="410" y="296">Data</text>
-          <text class="sx-node-sub" x="410" y="312">Genie</text>
-        </svg>
-        <div class="sx-agents-legend">
-          <span>Azure AI Foundry</span>
-          <span>Databricks Agents</span>
-          <span>Copilot Studio</span>
-          <span>Microsoft Teams</span>
-        </div>
-      </aside>
     </div>
   </section>
 
@@ -654,12 +733,27 @@
   <script>
   (function () {
     var nav = document.getElementById("sx-nav");
-    if (!nav) return;
-    var sync = function () {
-      nav.classList.toggle("is-solid", window.scrollY > 40);
-    };
-    sync();
-    window.addEventListener("scroll", sync, { passive: true });
+    if (nav) {
+      var sync = function () {
+        nav.classList.toggle("is-solid", window.scrollY > 40);
+      };
+      sync();
+      window.addEventListener("scroll", sync, { passive: true });
+    }
+
+    var stage = document.getElementById("sx-agents-stage");
+    var openBtn = document.getElementById("sx-agents-open");
+    var backBtn = document.getElementById("sx-agents-back");
+    if (stage && openBtn) {
+      openBtn.addEventListener("click", function () {
+        stage.classList.add("is-detail");
+      });
+    }
+    if (stage && backBtn) {
+      backBtn.addEventListener("click", function () {
+        stage.classList.remove("is-detail");
+      });
+    }
   })();
   </script>
 </body>
