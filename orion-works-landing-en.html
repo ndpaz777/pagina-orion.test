@@ -1629,6 +1629,8 @@
   .ow-nav.is-compact .ow-logo__tagline { font-size: 0.52rem; max-width: 11rem; }
   .ow-hero h1 { max-width: none; }
   .ow-flow { grid-template-columns: repeat(2, 1fr); }
+  .ow-wrap { width: min(100% - 2rem, var(--max)); }
+  .ow-certs .ow-wrap { margin-bottom: 1.35rem; }
 }
 
 @media (max-width: 700px) {
@@ -1646,10 +1648,75 @@
   .ow-agents {
     grid-template-columns: 1fr;
   }
-  .ow-wrap { width: min(100% - 1.35rem, var(--max)); }
-  .ow-hero { padding-top: 3rem; }
-  .ow-section { padding: 3.75rem 0; }
-  .ow-flow { grid-template-columns: 1fr 1fr; }
+  .ow-wrap { width: min(100% - 1.25rem, var(--max)); }
+  .ow-hero { padding: 2.5rem 0 2.5rem; }
+  .ow-hero h1 { font-size: clamp(1.85rem, 8.5vw, 2.75rem); }
+  .ow-hero__lead { font-size: 1rem; }
+  .ow-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ow-hero__actions .ow-btn { width: 100%; justify-content: center; }
+  .ow-section { padding: 3rem 0; }
+  .ow-h2 { font-size: clamp(1.55rem, 6.5vw, 2.2rem); max-width: none; }
+  .ow-flow { grid-template-columns: 1fr; }
+  .ow-clients {
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    justify-content: flex-start;
+  }
+  .ow-nav__inner {
+    min-height: 4.6rem;
+    gap: 0.55rem;
+  }
+  .ow-logo__mark { height: 3.2rem; }
+  .ow-logo__wordmark { height: 1.85rem; }
+  .ow-logo__tagline { font-size: 0.58rem; max-width: 11rem; }
+  .ow-nav.is-compact .ow-nav__inner { min-height: 3.5rem; }
+  .ow-nav.is-compact .ow-logo__mark { height: 2rem; }
+  .ow-nav.is-compact .ow-logo__wordmark { height: 1.15rem; }
+  .ow-nav__cta {
+    min-height: 2.2rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+  }
+  .ow-footer__row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ow-footer__logo { height: 3.8rem; }
+  .ow-cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ow-cta__actions .ow-btn { width: 100%; justify-content: center; }
+  .ow-form__actions .ow-btn { width: 100%; }
+  .ow-cert { width: min(260px, 82vw); }
+  .ow-agents-svg { max-width: 100%; height: auto; }
+}
+
+@media (max-width: 480px) {
+  .ow-wrap { width: min(100% - 1rem, var(--max)); }
+  .ow-section { padding: 2.5rem 0; }
+  .ow-hero { padding-top: 2rem; }
+  .ow-nav__cta { display: none; }
+  .ow-logo__tagline { display: none; }
+  .ow-logo__mark { height: 2.7rem; }
+  .ow-logo__wordmark { height: 1.55rem; }
+  .ow-kicker { font-size: 0.7rem; }
+  .ow-lede { font-size: 0.95rem; }
+  .ow-case,
+  .ow-platform__card,
+  .ow-model,
+  .ow-diff__item { padding: 1rem; }
+  .ow-chip { font-size: 0.72rem; }
+  .ow-certs { padding: 3rem 0; }
+  .ow-cert {
+    width: min(230px, 86vw);
+    padding: 0.9rem 0.85rem;
+  }
+  .ow-cert__mark { width: 2.7rem; height: 2.7rem; }
+  .ow-cert__name { font-size: 0.84rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

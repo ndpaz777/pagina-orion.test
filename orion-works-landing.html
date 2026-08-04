@@ -1175,6 +1175,7 @@
   .ow-nav__links { display: none; }
   .ow-hero h1 { max-width: none; }
   .ow-flow { grid-template-columns: repeat(2, 1fr); }
+  .ow-wrap { width: min(100% - 2rem, var(--max)); }
 }
 
 @media (max-width: 700px) {
@@ -1189,10 +1190,33 @@
   .ow-dash__body {
     grid-template-columns: 1fr;
   }
-  .ow-wrap { width: min(100% - 1.35rem, var(--max)); }
-  .ow-hero { padding-top: 3rem; }
-  .ow-section { padding: 3.75rem 0; }
-  .ow-flow { grid-template-columns: 1fr 1fr; }
+  .ow-wrap { width: min(100% - 1.25rem, var(--max)); }
+  .ow-hero { padding: 2.5rem 0 2.5rem; }
+  .ow-hero h1 { font-size: clamp(1.85rem, 8.5vw, 2.75rem); }
+  .ow-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ow-hero__actions .ow-btn { width: 100%; justify-content: center; }
+  .ow-section { padding: 3rem 0; }
+  .ow-h2 { font-size: clamp(1.55rem, 6.5vw, 2.2rem); max-width: none; }
+  .ow-flow { grid-template-columns: 1fr; }
+  .ow-clients {
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    justify-content: flex-start;
+  }
+  .ow-footer__row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .ow-wrap { width: min(100% - 1rem, var(--max)); }
+  .ow-section { padding: 2.5rem 0; }
+  .ow-hero { padding-top: 2rem; }
+  .ow-logo__tagline { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
