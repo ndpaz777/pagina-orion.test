@@ -868,7 +868,6 @@
       <a href="#contacto">Contacto</a>
     </div>
     <div style="display:flex;align-items:center;gap:0.65rem">
-      <a class="sx-back" href="index.html">← Versiones</a>
       <div class="sx-lang" aria-label="Idioma">
         <a class="is-active" href="orion-works-v2-es.html" hreflang="es" title="Español">
           <img class="sx-lang__flag" src="assets/flag-ec.svg" alt=""> ES
@@ -1278,6 +1277,15 @@
     var stage = document.getElementById("sx-agents-stage");
     var openBtn = document.getElementById("sx-agents-open");
     var backBtn = document.getElementById("sx-agents-back");
+    var expStage = document.getElementById("sx-exp-stage");
+    var expOpen = document.getElementById("sx-exp-open");
+    var expBack = document.getElementById("sx-exp-back");
+
+    var resetSliders = function () {
+      if (stage) stage.classList.remove("is-detail");
+      if (expStage) expStage.classList.remove("is-detail");
+    };
+
     if (stage && openBtn) {
       openBtn.addEventListener("click", function () {
         stage.classList.add("is-detail");
@@ -1288,10 +1296,6 @@
         stage.classList.remove("is-detail");
       });
     }
-
-    var expStage = document.getElementById("sx-exp-stage");
-    var expOpen = document.getElementById("sx-exp-open");
-    var expBack = document.getElementById("sx-exp-back");
     if (expStage && expOpen) {
       expOpen.addEventListener("click", function () {
         expStage.classList.add("is-detail");
@@ -1302,6 +1306,11 @@
         expStage.classList.remove("is-detail");
       });
     }
+
+    var navLinks = document.querySelectorAll(".sx-nav__links a[href^=\"#\"], .sx-nav__brand[href^=\"#\"]");
+    Array.prototype.forEach.call(navLinks, function (link) {
+      link.addEventListener("click", resetSliders);
+    });
   })();
   </script>
 </body>
