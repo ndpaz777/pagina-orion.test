@@ -1473,12 +1473,12 @@
 .ow-page-hero .ow-breadcrumb a:hover { color: var(--orange-2); }
 
 .ow-arch-diagram {
-  margin: 1.5rem 0 2rem;
+  margin: 1.5rem 0 1.25rem;
   padding: 1.25rem 1rem 1rem;
   border: 1px solid var(--line);
   border-radius: 1rem;
   background: rgba(16, 26, 44, 0.78);
-  overflow-x: auto;
+  overflow: hidden;
 }
 
 .ow-arch-diagram__label {
@@ -1491,55 +1491,70 @@
   margin-bottom: 0.85rem;
 }
 
-.ow-arch-svg {
-  width: 100%;
-  min-width: 720px;
-  height: auto;
+.ow-arch-diagram__img {
   display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.55rem;
+  background: #fff;
 }
 
-.ow-arch-svg .ow-arch-edge {
-  fill: none;
-  stroke: rgba(96, 165, 250, 0.55);
-  stroke-width: 2;
+.ow-arch-points {
+  margin: 0 0 2.25rem;
 }
 
-.ow-arch-svg .ow-arch-edge-flow {
-  fill: none;
-  stroke: var(--orange-2);
-  stroke-width: 2;
-  stroke-dasharray: 6 8;
-  animation: ow-arch-flow 2.8s linear infinite;
+.ow-arch-points__head {
+  margin-bottom: 1.1rem;
 }
 
-@keyframes ow-arch-flow {
-  to { stroke-dashoffset: -28; }
+.ow-arch-points__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
 }
 
-.ow-arch-svg .ow-arch-node {
-  fill: rgba(10, 18, 32, 0.95);
-  stroke: rgba(148, 180, 220, 0.35);
-  stroke-width: 1.5;
+.ow-arch-point {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.95rem;
+  align-items: start;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: rgba(16, 26, 44, 0.78);
 }
 
-.ow-arch-svg .ow-arch-node--core {
-  stroke: var(--blue-2);
-  stroke-width: 2;
+.ow-arch-point__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #052e16;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
-.ow-arch-svg .ow-arch-title {
-  fill: #f3f7ff;
-  font-family: Outfit, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  text-anchor: middle;
+.ow-arch-point__body h3 {
+  margin: 0.15rem 0 0.4rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
 }
 
-.ow-arch-svg .ow-arch-sub {
-  fill: #93a6c4;
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 10px;
-  text-anchor: middle;
+.ow-arch-point__body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 .ow-tools {
@@ -2071,65 +2086,96 @@
   <section class="ow-section" id="arquitectura" style="padding-top:1rem">
     <div class="ow-wrap">
       <div class="ow-arch-diagram" aria-label="Diagrama de arquitectura de ejemplo">
-        <div class="ow-arch-diagram__label">Flujo de referencia Orion Works</div>
-        <svg class="ow-arch-svg" viewBox="0 0 960 420" role="img">
-          <title>Arquitectura de datos e IA Orion Works</title>
-          <!-- edges -->
-          <path class="ow-arch-edge" d="M150 90 H310" />
-          <path class="ow-arch-edge" d="M470 90 H630" />
-          <path class="ow-arch-edge" d="M790 130 V190" />
-          <path class="ow-arch-edge" d="M710 250 H470" />
-          <path class="ow-arch-edge" d="M390 250 H250" />
-          <path class="ow-arch-edge" d="M710 250 H850" />
-          <path class="ow-arch-edge" d="M150 250 V330" />
-          <path class="ow-arch-edge" d="M390 330 H550" />
-          <path class="ow-arch-edge" d="M710 330 H850" />
-          <path class="ow-arch-edge-flow" d="M150 90 H310" />
-          <path class="ow-arch-edge-flow" d="M470 90 H630" />
-          <path class="ow-arch-edge-flow" d="M790 130 V190" />
-          <path class="ow-arch-edge-flow" d="M710 250 H470" />
-          <path class="ow-arch-edge-flow" d="M390 250 H250" />
-          <path class="ow-arch-edge-flow" d="M710 250 H850" />
+        <div class="ow-arch-diagram__label">Arquitectura de referencia · Azure Databricks</div>
+        <img
+          class="ow-arch-diagram__img"
+          src="assets/arquitectura-databricks-referencia.png"
+          alt="Arquitectura de referencia Azure Databricks: fuentes, ingesta, procesamiento, gobierno Medallion, serve, usuarios, seguridad, monitoreo y principios"
+          width="1600"
+          height="900"
+          loading="eager"
+          decoding="async"
+        >
+      </div>
 
-          <!-- row 1 -->
-          <rect class="ow-arch-node" x="40" y="50" width="220" height="80" rx="12" />
-          <text class="ow-arch-title" x="150" y="82">Orígenes</text>
-          <text class="ow-arch-sub" x="150" y="102">ERP · APIs · Files · SaaS</text>
-
-          <rect class="ow-arch-node" x="310" y="50" width="220" height="80" rx="12" />
-          <text class="ow-arch-title" x="420" y="82">Azure Data Factory</text>
-          <text class="ow-arch-sub" x="420" y="102">Ingesta · Orquestación</text>
-
-          <rect class="ow-arch-node ow-arch-node--core" x="630" y="50" width="220" height="80" rx="12" />
-          <text class="ow-arch-title" x="740" y="82">Azure Storage / ADLS</text>
-          <text class="ow-arch-sub" x="740" y="102">Bronze · Landing zone</text>
-
-          <!-- row 2 -->
-          <rect class="ow-arch-node ow-arch-node--core" x="630" y="210" width="220" height="80" rx="12" />
-          <text class="ow-arch-title" x="740" y="242">Azure Databricks</text>
-          <text class="ow-arch-sub" x="740" y="262">Silver/Gold · ML · GenAI</text>
-
-          <rect class="ow-arch-node" x="310" y="210" width="220" height="80" rx="12" />
-          <text class="ow-arch-title" x="420" y="242">Microsoft Fabric</text>
-          <text class="ow-arch-sub" x="420" y="262">Analytics · OneLake</text>
-
-          <rect class="ow-arch-node" x="40" y="210" width="220" height="80" rx="12" />
-          <text class="ow-arch-title" x="150" y="242">Power BI</text>
-          <text class="ow-arch-sub" x="150" y="262">Semántica · Tableros</text>
-
-          <!-- row 3 -->
-          <rect class="ow-arch-node" x="40" y="330" width="220" height="70" rx="12" />
-          <text class="ow-arch-title" x="150" y="360">Logic Apps</text>
-          <text class="ow-arch-sub" x="150" y="378">Integración · Eventos</text>
-
-          <rect class="ow-arch-node" x="310" y="330" width="220" height="70" rx="12" />
-          <text class="ow-arch-title" x="420" y="360">Power Platform</text>
-          <text class="ow-arch-sub" x="420" y="378">Apps · Automate · Pages</text>
-
-          <rect class="ow-arch-node" x="630" y="330" width="220" height="70" rx="12" />
-          <text class="ow-arch-title" x="740" y="360">Copilot / Agents</text>
-          <text class="ow-arch-sub" x="740" y="378">Foundry · Studio · Genie</text>
-        </svg>
+      <div class="ow-arch-points">
+        <div class="ow-arch-points__head ow-section__head" style="margin-bottom:0.85rem">
+          <div class="ow-eyebrow">Guía del diagrama</div>
+          <h2 class="ow-h2">Los 10 puntos de la arquitectura</h2>
+          <p class="ow-lede">Explicación de cada bloque numerado en el gráfico de referencia.</p>
+        </div>
+        <ol class="ow-arch-points__list">
+          <li class="ow-arch-point">
+            <span class="ow-arch-point__num" aria-hidden="true">1</span>
+            <div class="ow-arch-point__body">
+              <h3>Fuentes de Datos</h3>
+              <p>Punto de partida: sistemas corporativos (ERP, WMS, CRM, Finanzas, RRHH), bases operacionales (Oracle, SQL Server, SingleStore, SAP), archivos y documentos (SharePoint, SFTP, Excel, CSV, JSON), fuentes externas y APIs (REST, ArcGIS, Survey123, web) y federación hacia Oracle DWH / Azure Synapse con Lakehouse Federation.</p>
+            </div>
+          </li>
+          <li class="ow-arch-point">
+            <span class="ow-arch-point__num" aria-hidden="true">2</span>
+            <div class="ow-arch-point__body">
+              <h3>Azure Databricks (plataforma central)</h3>
+              <p>Contenedor principal donde ocurre la ingeniería de datos, el gobierno y la IA. Agrupa ingesta, procesamiento, Unity Catalog / AI Gateway, capa Medallion, serve y la seguridad transversal.</p>
+            </div>
+          </li>
+          <li class="ow-arch-point">
+            <span class="ow-arch-point__num" aria-hidden="true">3</span>
+            <div class="ow-arch-point__body">
+              <h3>Ingesta</h3>
+              <p>Entrada de datos al lakehouse con Databricks Ingestion (Auto Loader, Jobs, Notebooks), API Endpoints REST, conectores (Oracle, SAP, SharePoint) e integración Event Hubs / Azure Data Factory para streaming y batch.</p>
+            </div>
+          </li>
+          <li class="ow-arch-point">
+            <span class="ow-arch-point__num" aria-hidden="true">4</span>
+            <div class="ow-arch-point__body">
+              <h3>Procesamiento (Pipelines &amp; Orquestación)</h3>
+              <p>Motor de transformación y modelado: Workflows &amp; Jobs ETL/ELT, Notebooks (PySpark, SQL, Python, R), Delta Live Tables, AutoML / MLflow y Data Science &amp; GenAI (RAG, features, embeddings, vector search).</p>
+            </div>
+          </li>
+          <li class="ow-arch-point">
+            <span class="ow-arch-point__num" aria-hidden="true">5</span>
+            <div class="ow-arch-point__body">
+              <h3>Gobierno y Datos (Unity Catalog + AI Gateway)</h3>
+              <p>Gobierno de datos con catálogos, schemas, tablas, volúmenes, lineage, permisos, calidad y RLS/CLS. Gobierno de IA con modelos, endpoints, agentes, guardrails y trazabilidad. Capa Medallion: Bronze (Raw) → Silver (Limpio) → Gold (Outputs) → Consumption.</p>
+            </div>
+          </li>
+          <li class="ow-arch-point">
+            <span class="ow-arch-point__num" aria-hidden="true">6</span>
+            <div class="ow-arch-point__body">
+              <h3>Serve / Output</h3>
+              <p>Capa de entrega hacia el negocio: Power BI, Databricks Apps, Agents y Apps / APIs para consumo externo o embebido.</p>
+            </div>
+          </li>
+          <li class="ow-arch-point">
+            <span class="ow-arch-point__num" aria-hidden="true">7</span>
+            <div class="ow-arch-point__body">
+              <h3>Usuario Final</h3>
+              <p>Quién consume el valor: usuario de negocio (Q&amp;A, reportes, decisiones), analista (exploración y self-service), áreas corporativas (Sales, HR, Finance, Supply Chain) y procesos human-in-the-loop con aprobación y control.</p>
+            </div>
+          </li>
+          <li class="ow-arch-point">
+            <span class="ow-arch-point__num" aria-hidden="true">8</span>
+            <div class="ow-arch-point__body">
+              <h3>Seguridad y Gobierno Transversal</h3>
+              <p>Capa horizontal dentro de Databricks: Microsoft Entra ID (SSO/MFA), RLS/CLS, secretos y credenciales con Azure Key Vault, auditoría y lineage end-to-end, y network security (Private Link, VNets, NSGs, IP whitelisting).</p>
+            </div>
+          </li>
+          <li class="ow-arch-point">
+            <span class="ow-arch-point__num" aria-hidden="true">9</span>
+            <div class="ow-arch-point__body">
+              <h3>Monitoreo y Operación (Azure)</h3>
+              <p>Servicios fuera de Databricks que sostienen la operación: Azure Monitor, Log Analytics, Azure DevOps (CI/CD), alertas (Email/Teams/SMS), Cost Management, Backups &amp; DR, Azure Policy / Defender y auditoría.</p>
+            </div>
+          </li>
+          <li class="ow-arch-point">
+            <span class="ow-arch-point__num" aria-hidden="true">10</span>
+            <div class="ow-arch-point__body">
+              <h3>Principios Arquitectónicos</h3>
+              <p>Guías de diseño: Seguridad por Diseño (Zero Trust y mínimo privilegio), Gobierno de Datos, Escalabilidad serverless/elástica, Observabilidad, IA Responsable (guardrails y evaluaciones) y Valor de Negocio con datos confiables para decidir.</p>
+            </div>
+          </li>
+        </ol>
       </div>
 
       <div class="ow-section__head" style="margin-bottom:0.5rem">
