@@ -1527,8 +1527,9 @@
 
 .ow-arch-lightbox__panel {
   position: relative;
-  width: min(96vw, 1400px);
-  max-height: 92vh;
+  width: auto;
+  max-width: 98vw;
+  max-height: 94vh;
   overflow: auto;
   border-radius: 0.75rem;
   background: #fff;
@@ -1538,10 +1539,12 @@
 
 .ow-arch-lightbox__img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: none;
   height: auto;
-  min-width: 900px;
+  min-width: 1683px;
   cursor: zoom-out;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .ow-arch-lightbox__close {
@@ -1570,7 +1573,7 @@ body.ow-lightbox-open {
 }
 
 @media (max-width: 700px) {
-  .ow-arch-lightbox__img { min-width: 720px; }
+  .ow-arch-lightbox__img { min-width: 1100px; }
 }
 
 .ow-arch-points {
@@ -2164,9 +2167,9 @@ body.ow-lightbox-open {
         <img
           class="ow-arch-diagram__img"
           id="ow-arch-zoom-trigger"
-          src="assets/arquitectura-databricks-referencia.png?v=2"
+          src="assets/Full_Image_Arquitectura_ADB.png?v=3"
           alt="Azure Databricks reference architecture: sources, ingestion, processing, Medallion governance, serve, users, security, monitoring, and principles"
-          width="1024" height="523"
+          width="1683" height="861"
           loading="eager"
           decoding="async"
           role="button"
@@ -2191,9 +2194,9 @@ body.ow-lightbox-open {
           <img
             class="ow-arch-lightbox__img"
             id="ow-arch-lightbox-img"
-            src="assets/arquitectura-databricks-referencia.png?v=2"
+            src="assets/Full_Image_Arquitectura_ADB.png?v=3"
             alt="Enlarged Azure Databricks reference architecture"
-            width="1024" height="523"
+            width="1683" height="861"
             decoding="async"
           >
         </div>
