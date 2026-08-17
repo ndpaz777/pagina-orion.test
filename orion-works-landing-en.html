@@ -1479,6 +1479,124 @@
 
 .ow-page-hero .ow-breadcrumb a:hover { color: var(--orange-2); }
 
+.ow-arch-diagram {
+  margin: 1.5rem 0 2rem;
+  padding: 1.25rem 1rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(16, 26, 44, 0.78);
+  overflow-x: auto;
+}
+
+.ow-arch-diagram__label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-2);
+  margin-bottom: 0.85rem;
+}
+
+.ow-arch-svg {
+  width: 100%;
+  min-width: 720px;
+  height: auto;
+  display: block;
+}
+
+.ow-arch-svg .ow-arch-edge {
+  fill: none;
+  stroke: rgba(96, 165, 250, 0.55);
+  stroke-width: 2;
+}
+
+.ow-arch-svg .ow-arch-edge-flow {
+  fill: none;
+  stroke: var(--orange-2);
+  stroke-width: 2;
+  stroke-dasharray: 6 8;
+  animation: ow-arch-flow 2.8s linear infinite;
+}
+
+@keyframes ow-arch-flow {
+  to { stroke-dashoffset: -28; }
+}
+
+.ow-arch-svg .ow-arch-node {
+  fill: rgba(10, 18, 32, 0.95);
+  stroke: rgba(148, 180, 220, 0.35);
+  stroke-width: 1.5;
+}
+
+.ow-arch-svg .ow-arch-node--core {
+  stroke: var(--blue-2);
+  stroke-width: 2;
+}
+
+.ow-arch-svg .ow-arch-title {
+  fill: #f3f7ff;
+  font-family: Outfit, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.ow-arch-svg .ow-arch-sub {
+  fill: #93a6c4;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  text-anchor: middle;
+}
+
+.ow-tools {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.95rem;
+  margin-top: 1.5rem;
+}
+
+.ow-tool {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: rgba(16, 26, 44, 0.78);
+  padding: 1.1rem 1.15rem;
+}
+
+.ow-tool__vendor {
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange-2);
+  margin-bottom: 0.35rem;
+}
+
+.ow-tool h3 {
+  margin: 0 0 0.45rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.ow-tool p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 980px) {
+  .ow-tools { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 700px) {
+  .ow-tools { grid-template-columns: 1fr; }
+}
+
 /* ===== AI AGENTS SECTION ===== */
 .ow-agents {
   display: grid;
@@ -2135,6 +2253,10 @@
         <span class="ow-chip">Power Pages</span>
         <span class="ow-chip">Power BI</span>
       </div>
+      <div class="ow-section__actions">
+        <a class="ow-btn ow-btn--primary" href="orion-works-arquitectura-en.html">See architecture and tools</a>
+        <a class="ow-btn ow-btn--ghost" href="#contact">Talk to us</a>
+      </div>
     </div>
   </section>
 
@@ -2580,6 +2702,7 @@
           <ul class="ow-footer__links">
             <li><a href="#projects">Projects</a></li>
             <li><a href="#platform">Platform</a></li>
+            <li><a href="orion-works-arquitectura-en.html">Architecture</a></li>
             <li><a href="#engagement">Engagement</a></li>
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact">Contact</a></li>
