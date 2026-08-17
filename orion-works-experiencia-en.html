@@ -1,13 +1,6 @@
 <!--
-  ORION WORKS — Landing WordPress (ENGLISH)
-  Domain: orion-works.ai
-  Sibling file: orion-works-landing-es.html
-
-  In WordPress: create two pages (Home ES + /en/) and update the
-  ES|EN switcher hrefs to the real page URLs.
-
-  Background: upload assets/orion-constellation-bg.jpg to WP Media and
-  replace the URL in .ow-sky { background-image: ... }.
+  ORION WORKS — Project experience (ENGLISH)
+  Version 01 style · Shared header and footer with V01 home.
 -->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
@@ -1903,12 +1896,15 @@
 </style>
 
 <div class="ow-root" id="orion-works">
-  <!-- Static Orion background (no animation) -->
+  <!--
+  ORION WORKS — Project experience (ENGLISH)
+  Version 01 style · Shared header and footer with V01 home.
+-->
   <div class="ow-sky" aria-hidden="true"></div>
 
   <nav class="ow-nav" aria-label="Primary">
     <div class="ow-wrap ow-nav__inner">
-      <a class="ow-logo" href="#orion-works" aria-label="Orion Works.ai">
+      <a class="ow-logo" href="orion-works-landing-en.html" aria-label="Orion Works.ai">
         <img class="ow-logo__mark" src="assets/orion-works-mark.png" alt="" width="55" height="55" decoding="async">
         <span class="ow-logo__brand">
           <img class="ow-logo__wordmark" src="assets/orion-works-wordmark.png" alt="Orion Works.ai" width="160" height="34" decoding="async">
@@ -1917,19 +1913,19 @@
       </a>
       <div class="ow-nav__right">
         <div class="ow-nav__links">
-          <a href="#platform">Platform</a>
-          <a href="#agents">AI Agents</a>
-          <a href="#projects">Projects</a>
-          <a href="#engagement">Engagement</a>
-          <a href="#contact">Contact us</a>
+          <a href="orion-works-landing-en.html#platform">Platform</a>
+          <a href="orion-works-landing-en.html#agents">AI Agents</a>
+          <a href="orion-works-landing-en.html#projects">Projects</a>
+          <a href="orion-works-landing-en.html#engagement">Engagement</a>
+          <a href="orion-works-landing-en.html#contact">Contact us</a>
         </div>
-        <a href="#contact" class="ow-btn ow-btn--primary ow-btn--sm ow-nav__cta">Contact us</a>
+        <a href="orion-works-landing-en.html#contact" class="ow-btn ow-btn--primary ow-btn--sm ow-nav__cta">Contact us</a>
         <div class="ow-lang" aria-label="Language">
-          <a href="orion-works-landing-es.html" lang="es" hreflang="es" title="Español">
+          <a href="orion-works-experiencia-es.html" lang="es" hreflang="es" title="Español">
             <img class="ow-lang__flag" src="assets/flag-ec.svg" alt="" width="18" height="12" decoding="async">
             ES
           </a>
-          <a class="is-active" href="orion-works-landing-en.html" lang="en" hreflang="en" title="English">
+          <a class="is-active" href="orion-works-experiencia-en.html" lang="en" hreflang="en" title="English">
             <img class="ow-lang__flag" src="assets/flag-us.svg" alt="" width="18" height="12" decoding="async">
             EN
           </a>
@@ -1937,635 +1933,98 @@
       </div>
     </div>
   </nav>
-  <div class="ow-nav-spacer" aria-hidden="true"></div>
+    <div class="ow-nav-spacer" aria-hidden="true"></div>
 
-  <header class="ow-hero">
-    <div class="ow-wrap ow-hero__grid">
-      <div>
-        <div class="ow-kicker"><i></i> orion-works.ai</div>
-        <h1>Take your data to a new constellation of <em>possibilities</em></h1>
-        <p class="ow-hero__lead">
-          We connect data and artificial intelligence to create solutions that improve
-          decisions, productivity, and experience.
-        </p>
-        <div class="ow-hero__actions">
-          <a class="ow-btn ow-btn--primary" href="#contact">Book a demo</a>
-          <a class="ow-btn ow-btn--ghost" href="#projects">View projects</a>
-        </div>
-      </div>
-
-      <aside class="ow-dash" aria-label="Animated Orion Works dashboard">
-        <div class="ow-dash__bar">
-          <span class="ow-dash__dot"></span>
-          <span class="ow-dash__dot"></span>
-          <span class="ow-dash__dot"></span>
-          <span class="ow-dash__title">Orion Control · Data &amp; AI Ops</span>
-          <span class="ow-live">Live</span>
-        </div>
-        <div class="ow-dash__body">
-          <div class="ow-panel">
-            <h4>Pipeline throughput</h4>
-            <div class="ow-metric">
-              <strong id="ow-metric">98.4%</strong>
-              <span>+2.1%</span>
-            </div>
-            <div class="ow-chart" aria-hidden="true">
-              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:58%"></div><span class="ow-chart__label">M</span></div>
-              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:72%"></div><span class="ow-chart__label">T</span></div>
-              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:48%"></div><span class="ow-chart__label">W</span></div>
-              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:86%"></div><span class="ow-chart__label">T</span></div>
-              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:64%"></div><span class="ow-chart__label">F</span></div>
-              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:78%"></div><span class="ow-chart__label">S</span></div>
-              <div class="ow-chart__col"><div class="ow-chart__bar" style="height:92%"></div><span class="ow-chart__label">S</span></div>
-            </div>
-          </div>
-
-          <div class="ow-panel">
-            <h4>Agent latency · 24h</h4>
-            <svg class="ow-linechart" viewBox="0 0 280 88" preserveAspectRatio="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="owAreaGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/>
-                  <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <path class="ow-area" d="M0,70 C30,62 50,48 80,52 C110,56 130,28 160,34 C190,40 210,18 240,24 C260,28 270,20 280,16 L280,88 L0,88 Z"/>
-              <path class="ow-path-blue" d="M0,70 C30,62 50,48 80,52 C110,56 130,28 160,34 C190,40 210,18 240,24 C260,28 270,20 280,16"/>
-              <path class="ow-path-orange" d="M0,78 C40,72 70,60 100,64 C130,68 150,44 180,48 C210,52 240,36 280,30"/>
-            </svg>
-            <div class="ow-list" style="margin-top:0.45rem">
-              <div class="ow-list-item"><b>Sales RAG</b><em>42ms</em></div>
-              <div class="ow-list-item"><b>PMO Docs</b><em>61ms</em></div>
-              <div class="ow-list-item"><b>HR Knowledge</b><em>55ms</em></div>
-            </div>
-          </div>
-
-          <div class="ow-flow">
-            <div class="ow-flow__step"><strong>Discover</strong><span>Use cases</span></div>
-            <div class="ow-flow__step"><strong>Design</strong><span>Architecture</span></div>
-            <div class="ow-flow__step"><strong>Build</strong><span>Agents &amp; data</span></div>
-            <div class="ow-flow__step"><strong>Operate</strong><span>Production</span></div>
-          </div>
-        </div>
-      </aside>
+  <header class="ow-page-hero">
+    <div class="ow-wrap">
+      <nav class="ow-breadcrumb" aria-label="Breadcrumb">
+        <a href="orion-works-landing-en.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>Project experience</span>
+      </nav>
+      <div class="ow-eyebrow">Track record</div>
+      <h1 class="ow-h2" style="margin-top:0.65rem">Project experience</h1>
+      <p class="ow-lede">Selected deliveries across banking, funds, energy, and services on Azure, Databricks, and Microsoft Power Platform.</p>
     </div>
   </header>
 
-  <div class="ow-steps">
-    <div class="ow-wrap ow-steps__row">
-      <div class="ow-step">
-        <div class="ow-step__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
-        </div>
-        <div><strong>Discover</strong><span>Use cases &amp; data</span></div>
-      </div>
-      <div class="ow-step">
-        <div class="ow-step__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h10M4 17h14"/></svg>
-        </div>
-        <div><strong>Design</strong><span>Azure architecture</span></div>
-      </div>
-      <div class="ow-step">
-        <div class="ow-step__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
-        </div>
-        <div><strong>Build</strong><span>AI &amp; lakehouse</span></div>
-      </div>
-      <div class="ow-step">
-        <div class="ow-step__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="4"/></svg>
-        </div>
-        <div><strong>Operate</strong><span>Real production</span></div>
-      </div>
-    </div>
-  </div>
-
-  <section class="ow-section" id="projects">
+  <section class="ow-section" id="experience" style="padding-top:1rem">
     <div class="ow-wrap">
-      <div class="ow-section__head">
-        <div class="ow-eyebrow">Projects in production</div>
-        <h2 class="ow-h2">Real impact across banking, agribusiness, and services</h2>
-        <p class="ow-lede">Solutions designed and delivered on Azure, Databricks, and Power Platform across Latin America.</p>
-      </div>
-      <div class="ow-cases">
-        <article class="ow-case">
-          <p class="ow-case__label">Diners Club</p>
-          <h3>RAG assistant for PMO in Teams</h3>
-          <p>Document Q&amp;A with Azure OpenAI, AI Search, and Document Intelligence.</p>
-          <div class="ow-case__tags"><span class="ow-tag">Azure AI</span><span class="ow-tag">Teams</span></div>
-        </article>
-        <article class="ow-case">
-          <p class="ow-case__label">Fideval</p>
-          <h3>Retail Funds Lakehouse</h3>
-          <p>Medallion architecture with Databricks, Data Lake Gen2, and Power BI consumption.</p>
-          <div class="ow-case__tags"><span class="ow-tag">Lakehouse</span><span class="ow-tag">Power BI</span></div>
-        </article>
-        <article class="ow-case">
-          <p class="ow-case__label">Produbanco</p>
-          <h3>Travel management app</h3>
-          <p>End-to-end Power Apps + Automate solution with executive dashboards.</p>
-          <div class="ow-case__tags"><span class="ow-tag">Power Apps</span><span class="ow-tag">Automate</span></div>
-        </article>
-        <article class="ow-case">
-          <p class="ow-case__label">Grupo Promerica</p>
-          <h3>Strategic projects platform</h3>
-          <p>Regional initiative tracking with Power Platform and Azure for Central American banking.</p>
-          <div class="ow-case__tags"><span class="ow-tag">Power Platform</span><span class="ow-tag">Azure</span></div>
-        </article>
+      <div class="ow-exp-table-wrap">
+        <table class="ow-exp-table">
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Project</th>
+              <th>Stack</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Diners Club</strong><span class="ow-exp-meta">Financial · Ecuador</span></td>
+              <td>RAG assistant for PMO documentation in Microsoft Teams</td>
+              <td class="ow-exp-stack">Azure OpenAI · AI Search · Document Intelligence · Functions</td>
+              <td>2025</td>
+            </tr>
+            <tr>
+              <td><strong>Fideval</strong><span class="ow-exp-meta">Funds · Ecuador</span></td>
+              <td>Fondos Personas lakehouse with Medallion architecture</td>
+              <td class="ow-exp-stack">Databricks · Data Lake Gen2 · Data Factory · Power BI</td>
+              <td>2025</td>
+            </tr>
+            <tr>
+              <td><strong>Grupo Promerica</strong><span class="ow-exp-meta">Regional banking · LatAm</span></td>
+              <td>Strategic project portfolio platform for the group</td>
+              <td class="ow-exp-stack">Power Platform · Azure · Azure DevOps</td>
+              <td>2023</td>
+            </tr>
+            <tr>
+              <td><strong>Banco de Loja</strong><span class="ow-exp-meta">Banking · Ecuador</span></td>
+              <td>SharePoint 2013 to SharePoint Online migration (PWA &amp; docs)</td>
+              <td class="ow-exp-stack">SharePoint Online · Power Platform</td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td><strong>Banco Internacional</strong><span class="ow-exp-meta">Banking · Ecuador</span></td>
+              <td>Executive reporting for agile projects from Azure DevOps</td>
+              <td class="ow-exp-stack">Azure DevOps · Power BI</td>
+              <td>2023</td>
+            </tr>
+            <tr>
+              <td><strong>Banesco Panama</strong><span class="ow-exp-meta">Banking · Panama</span></td>
+              <td>Online project portfolio solution</td>
+              <td class="ow-exp-stack">Power Apps · Power Automate · SharePoint · Power BI</td>
+              <td>2022</td>
+            </tr>
+            <tr>
+              <td><strong>PCR Energy</strong><span class="ow-exp-meta">Energy · Argentina</span></td>
+              <td>Financial dashboard migration from Qlik View to Power BI</td>
+              <td class="ow-exp-stack">Power BI · DAX · T-SQL</td>
+              <td>2022</td>
+            </tr>
+            <tr>
+              <td><strong>Banco Pichincha</strong><span class="ow-exp-meta">Banking · Ecuador</span></td>
+              <td>BI solution for Risk Administration indicators</td>
+              <td class="ow-exp-stack">Azure · Power BI</td>
+              <td>2017</td>
+            </tr>
+            <tr>
+              <td><strong>Logaritmo</strong><span class="ow-exp-meta">Actuarial · Ecuador</span></td>
+              <td>Document manager with classification and custom metadata</td>
+              <td class="ow-exp-stack">SharePoint Online</td>
+              <td>2023</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="ow-section__actions">
-        <a class="ow-btn ow-btn--primary" href="orion-works-experiencia-en.html">See project experience</a>
-        <a class="ow-btn ow-btn--ghost" href="#contact">Talk to us</a>
+        <a class="ow-btn ow-btn--primary" href="orion-works-landing-en.html#contact">Talk to us</a>
+        <a class="ow-btn ow-btn--ghost" href="orion-works-landing-en.html">Back to home</a>
       </div>
     </div>
   </section>
-
-  <section class="ow-section ow-section--surface" id="platform">
-    <div class="ow-wrap">
-      <div class="ow-section__head">
-        <div class="ow-eyebrow">Capabilities</div>
-        <h2 class="ow-h2">The Orion Works services platform</h2>
-        <p class="ow-lede">From discovery to runtime: architecture, agents, data, and automation with one senior partner.</p>
-      </div>
-      <div class="ow-platform">
-        <article class="ow-plat">
-          <h3>Discover</h3>
-          <ul>
-            <li>Data &amp; AI assessment</li>
-            <li>Prioritized use cases</li>
-            <li>Live POCs and demos</li>
-          </ul>
-        </article>
-        <article class="ow-plat">
-          <h3>Design</h3>
-          <ul>
-            <li>Azure / Fabric architecture</li>
-            <li>Medallion lakehouse</li>
-            <li>Governance &amp; security</li>
-          </ul>
-        </article>
-        <article class="ow-plat">
-          <h3>Build</h3>
-          <ul>
-            <li>RAG &amp; multi-agent systems</li>
-            <li>Copilot Studio / M365</li>
-            <li>Power Apps &amp; Automate</li>
-          </ul>
-        </article>
-        <article class="ow-plat">
-          <h3>Operate</h3>
-          <ul>
-            <li>Pipelines &amp; MLOps</li>
-            <li>Azure DevOps (repos, boards &amp; CI/CD)</li>
-            <li>Power BI dashboards</li>
-            <li>Team enablement</li>
-          </ul>
-        </article>
-      </div>
-      <div class="ow-stack" aria-label="Technologies">
-        <span class="ow-chip">Azure</span>
-        <span class="ow-chip">Azure AI Foundry</span>
-        <span class="ow-chip">Azure Databricks</span>
-        <span class="ow-chip">Azure DevOps</span>
-        <span class="ow-chip">Microsoft Fabric</span>
-        <span class="ow-chip">MS Copilot Studio</span>
-        <span class="ow-chip">Microsoft 365 Copilot</span>
-        <span class="ow-chip">Power Apps</span>
-        <span class="ow-chip">Power Automate</span>
-        <span class="ow-chip">Power Pages</span>
-        <span class="ow-chip">Power BI</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="ow-section" id="agents">
-    <div class="ow-wrap">
-      <div class="ow-section__head">
-        <div class="ow-eyebrow">AI Agents</div>
-        <h2 class="ow-h2">Production-ready multi-agent orchestration</h2>
-        <p class="ow-lede">We design supervisors and specialist agents that query data, documents, and business systems with Azure AI Foundry, Databricks, and Copilot Studio.</p>
-      </div>
-
-      <div class="ow-agents">
-        <div>
-          <ul class="ow-agents__list">
-            <li>
-              <span class="ow-agents__badge">01</span>
-              <div>
-                <strong>Multi-agent supervisor</strong>
-                <p>Coordinates specialists, routes the query, and consolidates the answer with full traceability.</p>
-              </div>
-            </li>
-            <li>
-              <span class="ow-agents__badge">02</span>
-              <div>
-                <strong>RAG and Genie agents</strong>
-                <p>Answers over documents, lakehouse data, and Genie Spaces connected to the business.</p>
-              </div>
-            </li>
-            <li>
-              <span class="ow-agents__badge">03</span>
-              <div>
-                <strong>Copilot Studio and Teams</strong>
-                <p>Conversational channels in Microsoft 365 with governance and access control.</p>
-              </div>
-            </li>
-            <li>
-              <span class="ow-agents__badge">04</span>
-              <div>
-                <strong>Tools and actions</strong>
-                <p>Integration with APIs, Azure Functions, Power Automate, and operational workflows.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <aside class="ow-agents-viz" aria-label="Animated multi-agent orchestration diagram">
-          <div class="ow-agents-viz__label">Orion · Multi-agent</div>
-          <svg class="ow-agents-svg" viewBox="0 0 520 400" role="img">
-            <defs>
-              <linearGradient id="owAgentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#3b82f6"/>
-                <stop offset="100%" stop-color="#f97316"/>
-              </linearGradient>
-              <linearGradient id="owAgentGrad2" x1="100%" y1="0%" x2="0%" y2="0%">
-                <stop offset="0%" stop-color="#fb923c"/>
-                <stop offset="100%" stop-color="#60a5fa"/>
-              </linearGradient>
-            </defs>
-
-            <path class="ow-edge" d="M260 200 L120 90" />
-            <path class="ow-edge" d="M260 200 L400 90" />
-            <path class="ow-edge" d="M260 200 L110 300" />
-            <path class="ow-edge" d="M260 200 L410 300" />
-            <path class="ow-edge-flow" d="M260 200 L120 90" />
-            <path class="ow-edge-flow ow-edge-flow--rev" d="M260 200 L400 90" />
-            <path class="ow-edge-flow" d="M260 200 L110 300" />
-            <path class="ow-edge-flow ow-edge-flow--rev" d="M260 200 L410 300" />
-
-            <circle class="ow-packet" cx="190" cy="145" r="3.5" />
-            <circle class="ow-packet ow-packet--2" cx="330" cy="145" r="3.5" />
-            <circle class="ow-packet ow-packet--3" cx="185" cy="250" r="3.5" />
-
-            <circle class="ow-node-pulse" cx="260" cy="200" r="48" />
-            <circle class="ow-node-pulse ow-node-pulse--2" cx="260" cy="200" r="48" />
-            <circle class="ow-node-core" cx="260" cy="200" r="38" />
-            <text class="ow-node-label" x="260" y="196">Supervisor</text>
-            <text class="ow-node-sub" x="260" y="212">orchestrator</text>
-
-            <circle class="ow-node-agent" cx="120" cy="90" r="34" />
-            <text class="ow-node-label" x="120" y="86">Sales</text>
-            <text class="ow-node-sub" x="120" y="102">RAG</text>
-
-            <circle class="ow-node-agent" cx="400" cy="90" r="34" />
-            <text class="ow-node-label" x="400" y="86">Documents</text>
-            <text class="ow-node-sub" x="400" y="102">PMO</text>
-
-            <circle class="ow-node-agent" cx="110" cy="300" r="34" />
-            <text class="ow-node-label" x="110" y="296">HR</text>
-            <text class="ow-node-sub" x="110" y="312">knowledge</text>
-
-            <circle class="ow-node-agent" cx="410" cy="300" r="34" />
-            <text class="ow-node-label" x="410" y="296">Data</text>
-            <text class="ow-node-sub" x="410" y="312">Genie</text>
-          </svg>
-          <div class="ow-agents-legend">
-            <span>Azure AI Foundry</span>
-            <span>Databricks Agents</span>
-            <span>Copilot Studio</span>
-            <span>Microsoft Teams</span>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <section class="ow-section" id="engagement">
-    <div class="ow-wrap">
-      <div class="ow-section__head">
-        <div class="ow-eyebrow">Engagement models</div>
-        <h2 class="ow-h2">Projects and consulting hour packs</h2>
-        <p class="ow-lede">Two clear models, matched to your scope, governance, and delivery pace.</p>
-      </div>
-      <div class="ow-models">
-        <article class="ow-model">
-          <h3>Projects</h3>
-          <p>Defined-scope delivery with milestones, deliverables, and acceptance criteria.</p>
-          <ul>
-            <li>Discovery + architecture + build</li>
-            <li>MVP or production-ready solution</li>
-            <li>Documentation and handoff</li>
-          </ul>
-        </article>
-        <article class="ow-model ow-model--accent">
-          <h3>Consulting hour packs</h3>
-          <p>Flexible senior capacity for continuous data and AI backlog work.</p>
-          <ul>
-            <li>Weekly prioritization with your sponsor</li>
-            <li>Architecture, build, or mentoring</li>
-            <li>Ideal for ongoing evolution</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="ow-section ow-section--surface">
-    <div class="ow-wrap">
-      <div class="ow-section__head">
-        <div class="ow-eyebrow">Differentiators</div>
-        <h2 class="ow-h2">What sets us apart from generic consulting</h2>
-      </div>
-      <div class="ow-diff">
-        <article>
-          <h3>Production, not demos</h3>
-          <p>Architectures and agents built to run in regulated environments: banking, agribusiness, and pharma.</p>
-        </article>
-        <article>
-          <h3>Microsoft + Databricks stack</h3>
-          <p>Deep specialization in Azure AI Foundry, Databricks, Azure DevOps, Copilot Studio, and Power Platform.</p>
-        </article>
-        <article>
-          <h3>Real technical pre-sales</h3>
-          <p>Live demos tailored to the client's business — the signal that accelerates decisions and adoption.</p>
-        </article>
-        <article>
-          <h3>Boutique senior team</h3>
-          <p>No middle layers. Architecture, delivery, and mentoring with 12+ years across LatAm.</p>
-        </article>
-        <article>
-          <h3>Personalized attention</h3>
-          <p>Direct access to the solution architect: clear communication, business context, and close support at every stage.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="ow-certs" id="certifications" aria-label="Certifications">
-    <div class="ow-wrap">
-      <div class="ow-section__head" style="margin-bottom:0">
-        <div class="ow-eyebrow">Certifications</div>
-        <h2 class="ow-h2">Azure and Databricks credentials</h2>
-        <p class="ow-lede">Official training that backs delivery of data platforms, DevOps, and artificial intelligence.</p>
-      </div>
-    </div>
-    <div class="ow-certs-reel">
-      <div class="ow-certs-track">
-        <article class="ow-cert">
-          <span class="ow-cert__mark"><img src="assets/badges/az-400.png" alt="Microsoft DevOps Engineer Expert badge" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Microsoft Azure</span>
-            <p class="ow-cert__name">DevOps Engineer Expert</p>
-            <span class="ow-cert__code">AZ-400</span>
-          </div>
-        </article>
-        <article class="ow-cert">
-          <span class="ow-cert__mark"><img src="assets/badges/az-104.svg" alt="Microsoft Azure Administrator Associate badge" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Microsoft Azure</span>
-            <p class="ow-cert__name">Administrator Associate</p>
-            <span class="ow-cert__code">AZ-104</span>
-          </div>
-        </article>
-        <article class="ow-cert">
-          <span class="ow-cert__mark"><img src="assets/badges/pl-300.svg" alt="Microsoft Power BI Data Analyst Associate badge" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Microsoft</span>
-            <p class="ow-cert__name">Power BI Data Analyst Associate</p>
-            <span class="ow-cert__code">PL-300</span>
-          </div>
-        </article>
-        <article class="ow-cert">
-          <span class="ow-cert__mark"><img src="assets/badges/dp-600.svg" alt="Microsoft Fabric Analytics badge" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Microsoft Fabric</span>
-            <p class="ow-cert__name">Analytics Solutions</p>
-            <span class="ow-cert__code">DP-600</span>
-          </div>
-        </article>
-        <article class="ow-cert">
-          <span class="ow-cert__mark"><img src="assets/badges/dp-700.svg" alt="Microsoft Fabric Data Engineering badge" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Microsoft Fabric</span>
-            <p class="ow-cert__name">Data Engineering Solutions</p>
-            <span class="ow-cert__code">DP-700</span>
-          </div>
-        </article>
-        <article class="ow-cert">
-          <span class="ow-cert__mark"><img src="assets/badges/dbx-dea.png" alt="Databricks Data Engineer Associate badge" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Databricks</span>
-            <p class="ow-cert__name">Data Engineer Associate</p>
-            <span class="ow-cert__code">Official certification</span>
-          </div>
-        </article>
-        <article class="ow-cert">
-          <span class="ow-cert__mark"><img src="assets/badges/dbx-genai.png" alt="Databricks Generative AI Engineer Associate badge" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Databricks</span>
-            <p class="ow-cert__name">Generative AI Engineer Associate</p>
-            <span class="ow-cert__code">Official certification</span>
-          </div>
-        </article>
-        <article class="ow-cert" aria-hidden="true">
-          <span class="ow-cert__mark"><img src="assets/badges/az-400.png" alt="" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Microsoft Azure</span>
-            <p class="ow-cert__name">DevOps Engineer Expert</p>
-            <span class="ow-cert__code">AZ-400</span>
-          </div>
-        </article>
-        <article class="ow-cert" aria-hidden="true">
-          <span class="ow-cert__mark"><img src="assets/badges/az-104.svg" alt="" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Microsoft Azure</span>
-            <p class="ow-cert__name">Administrator Associate</p>
-            <span class="ow-cert__code">AZ-104</span>
-          </div>
-        </article>
-        <article class="ow-cert" aria-hidden="true">
-          <span class="ow-cert__mark"><img src="assets/badges/pl-300.svg" alt="" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Microsoft</span>
-            <p class="ow-cert__name">Power BI Data Analyst Associate</p>
-            <span class="ow-cert__code">PL-300</span>
-          </div>
-        </article>
-        <article class="ow-cert" aria-hidden="true">
-          <span class="ow-cert__mark"><img src="assets/badges/dp-600.svg" alt="" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Microsoft Fabric</span>
-            <p class="ow-cert__name">Analytics Solutions</p>
-            <span class="ow-cert__code">DP-600</span>
-          </div>
-        </article>
-        <article class="ow-cert" aria-hidden="true">
-          <span class="ow-cert__mark"><img src="assets/badges/dp-700.svg" alt="" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Microsoft Fabric</span>
-            <p class="ow-cert__name">Data Engineering Solutions</p>
-            <span class="ow-cert__code">DP-700</span>
-          </div>
-        </article>
-        <article class="ow-cert" aria-hidden="true">
-          <span class="ow-cert__mark"><img src="assets/badges/dbx-dea.png" alt="" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Databricks</span>
-            <p class="ow-cert__name">Data Engineer Associate</p>
-            <span class="ow-cert__code">Official certification</span>
-          </div>
-        </article>
-        <article class="ow-cert" aria-hidden="true">
-          <span class="ow-cert__mark"><img src="assets/badges/dbx-genai.png" alt="" width="52" height="52" loading="lazy"></span>
-          <div>
-            <span class="ow-cert__vendor">Databricks</span>
-            <p class="ow-cert__name">Generative AI Engineer Associate</p>
-            <span class="ow-cert__code">Official certification</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="ow-section">
-    <div class="ow-wrap">
-      <div class="ow-stats">
-        <article class="ow-stat">
-          <strong>12+</strong>
-          <h3>Years of experience in data and AI solutions</h3>
-          <p>High-impact projects across Central and South America.</p>
-        </article>
-        <article class="ow-stat">
-          <strong>27</strong>
-          <h3>Power BI implementations</h3>
-          <p>Executive analytics connected to operational and AI data.</p>
-        </article>
-        <article class="ow-stat">
-          <strong>12</strong>
-          <h3>Databricks architectures</h3>
-          <p>Lakehouse, GenAI agents, and pipelines in production.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="ow-section ow-section--surface" id="clients">
-    <div class="ow-wrap">
-      <div class="ow-section__head">
-        <div class="ow-eyebrow">Track record</div>
-        <h2 class="ow-h2">Organizations where value has been delivered</h2>
-        <p class="ow-lede">Experience across banking, funds, agribusiness, energy, and pharma.</p>
-      </div>
-      <div class="ow-clients">
-        <span class="ow-client">Diners Ecuador</span>
-        <span class="ow-client">Fideval</span>
-        <span class="ow-client">Produbanco</span>
-        <span class="ow-client">Banco Promerica CR</span>
-        <span class="ow-client">Banco Promerica GT</span>
-        <span class="ow-client">Banpro Nicaragua</span>
-        <span class="ow-client">St. Georges Bank</span>
-        <span class="ow-client">Banesco Panama</span>
-        <span class="ow-client">Banco Internacional</span>
-        <span class="ow-client">Banco Bolivariano</span>
-        <span class="ow-client">PCR Energy</span>
-        <span class="ow-client">Alpina Ecuador</span>
-        <span class="ow-client">Medicamenta</span>
-        <span class="ow-client">Laboratorios LIFE</span>
-        <span class="ow-client">Grupo Noboa</span>
-        <span class="ow-client">Nueva Pescanova</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="ow-contact" id="contact">
-    <div class="ow-wrap">
-      <div class="ow-section__head">
-        <div class="ow-eyebrow">Contact us</div>
-        <h2 class="ow-h2">Let's talk about your next AI and data project</h2>
-        <p class="ow-lede">Tell us about your use case. We'll come back with scope, stack, and engagement options (projects or consulting hour packs).</p>
-      </div>
-
-      <div class="ow-contact__grid">
-        <div class="ow-contact__channels">
-          <a class="ow-channel" href="https://wa.me/593998816054" target="_blank" rel="noopener noreferrer">
-            <span class="ow-channel__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-            </span>
-            <div>
-              <strong>WhatsApp</strong>
-              <span>+593 99 881 6054</span>
-            </div>
-          </a>
-          <a class="ow-channel" href="mailto:ndpaz7@yahoo.com?subject=Orion%20Works%20Inquiry">
-            <span class="ow-channel__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-            </span>
-            <div>
-              <strong>Email</strong>
-              <span>ndpaz7@yahoo.com</span>
-            </div>
-          </a>
-          <div class="ow-channel">
-            <span class="ow-channel__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            </span>
-            <div>
-              <strong>Location</strong>
-              <p>Quito, Ecuador · Serving LatAm</p>
-            </div>
-          </div>
-          <div class="ow-channel">
-            <span class="ow-channel__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            </span>
-            <div>
-              <strong>Typical response</strong>
-              <p>Within 24 business hours</p>
-            </div>
-          </div>
-        </div>
-
-        <form class="ow-form" id="ow-contact-form" novalidate>
-          <div class="ow-form__row">
-            <div class="ow-field">
-              <label for="ow-name">Name</label>
-              <input id="ow-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
-            </div>
-            <div class="ow-field">
-              <label for="ow-email">Email</label>
-              <input id="ow-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com">
-            </div>
-          </div>
-          <div class="ow-field">
-            <label for="ow-company">Company</label>
-            <input id="ow-company" name="company" type="text" autocomplete="organization" placeholder="Company name">
-          </div>
-          <div class="ow-field">
-            <label for="ow-interest">Interest</label>
-            <select id="ow-interest" name="interest">
-              <option value="Demo / consulting">Demo / consulting</option>
-              <option value="Project">Project</option>
-              <option value="Consulting hour pack">Consulting hour pack</option>
-              <option value="Data & AI architecture">Data &amp; AI architecture</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="ow-field">
-            <label for="ow-message">Message</label>
-            <textarea id="ow-message" name="message" required placeholder="Tell us about your challenge or use case..."></textarea>
-          </div>
-          <div class="ow-form__actions">
-            <button class="ow-btn ow-btn--primary" type="submit">Send message</button>
-            <a class="ow-btn ow-btn--ghost" href="https://wa.me/593998816054" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-          </div>
-          <p class="ow-form__hint">Submitting opens your email client with a ready-to-send message to Orion Works.</p>
-          <p class="ow-form__status" id="ow-form-status" role="status"></p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer class="ow-footer">
+<footer class="ow-footer">
     <div class="ow-wrap">
       <div class="ow-footer__grid">
         <div class="ow-footer__brand">
@@ -2578,11 +2037,11 @@
         <div>
           <span class="ow-footer__col-title">Navigation</span>
           <ul class="ow-footer__links">
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#platform">Platform</a></li>
-            <li><a href="#engagement">Engagement</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="orion-works-landing-en.html#projects">Projects</a></li>
+            <li><a href="orion-works-landing-en.html#platform">Platform</a></li>
+            <li><a href="orion-works-landing-en.html#engagement">Engagement</a></li>
+            <li><a href="orion-works-landing-en.html#certifications">Certifications</a></li>
+            <li><a href="orion-works-landing-en.html#contact">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -2677,3 +2136,4 @@
   });
 })();
 </script>
+

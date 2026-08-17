@@ -1273,18 +1273,20 @@
 
 .ow-footer {
   border-top: 1px solid var(--line);
-  padding: 1.75rem 0 2.5rem;
+  padding: 3rem 0 2rem;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   position: relative;
   z-index: 2;
+  background: linear-gradient(180deg, rgba(5, 9, 18, 0.2) 0%, rgba(5, 9, 18, 0.72) 100%);
 }
 
-.ow-footer__row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.75rem;
+.ow-footer__grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr 1.1fr;
+  gap: 2rem 1.5rem;
+  align-items: start;
+  margin-bottom: 2rem;
 }
 
 .ow-footer strong {
@@ -1294,32 +1296,195 @@
 
 .ow-footer__brand {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
 }
 
 .ow-footer__logo {
   width: auto;
-  height: 5.5rem;
+  height: 4.5rem;
   display: block;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .ow-footer__meta {
   color: var(--muted);
   font-size: 0.88rem;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .ow-footer__meta strong {
   display: block;
   color: var(--text);
   font-family: "Outfit", sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+.ow-footer__meta p {
+  margin: 0 0 0.85rem;
+  max-width: 22rem;
+}
+
+.ow-footer__col-title {
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-2);
+  margin-bottom: 0.85rem;
+}
+
+.ow-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.ow-footer__links a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.ow-footer__links a:hover { color: var(--orange-2); }
+
+.ow-footer__contact {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.ow-footer__contact a,
+.ow-footer__contact span {
+  color: var(--muted);
+}
+
+.ow-footer__contact a:hover { color: var(--orange-2); }
+
+.ow-footer__cta {
+  border: 1px solid var(--line-strong);
+  border-radius: 0.9rem;
+  background: rgba(16, 26, 44, 0.75);
+  padding: 1.1rem 1.15rem;
+}
+
+.ow-footer__cta p {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.ow-footer__cta .ow-btn {
+  width: 100%;
+  justify-content: center;
+  min-height: 2.55rem;
+  font-size: 0.8rem;
+}
+
+.ow-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.8rem;
+}
+
+.ow-footer__bottom a:hover { color: var(--orange-2); }
+
+.ow-section__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.ow-exp-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: rgba(16, 26, 44, 0.72);
+}
+
+.ow-exp-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.ow-exp-table th,
+.ow-exp-table td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.ow-exp-table th {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-2);
+  background: rgba(59, 130, 246, 0.08);
+  white-space: nowrap;
+}
+
+.ow-exp-table td {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.ow-exp-table tr:last-child td { border-bottom: 0; }
+.ow-exp-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ow-exp-table strong {
+  display: block;
+  color: var(--text);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.95rem;
   margin-bottom: 0.15rem;
 }
 
-.ow-footer a:hover { color: var(--orange-2); }
+.ow-exp-table .ow-exp-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.ow-exp-table .ow-exp-stack {
+  font-size: 0.82rem;
+  color: #a9b8d0;
+}
+
+.ow-page-hero {
+  padding: 3.25rem 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.ow-page-hero .ow-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.ow-page-hero .ow-breadcrumb a:hover { color: var(--orange-2); }
 
 /* ===== AI AGENTS SECTION ===== */
 .ow-agents {
@@ -1687,9 +1852,8 @@
     padding: 0.35rem 0.7rem;
     font-size: 0.75rem;
   }
-  .ow-footer__row {
-    flex-direction: column;
-    align-items: flex-start;
+  .ow-footer__grid {
+    grid-template-columns: 1fr 1fr;
   }
   .ow-footer__logo { height: 3.8rem; }
   .ow-cta__actions {
@@ -1724,6 +1888,7 @@
   }
   .ow-cert__mark { width: 2.7rem; height: 2.7rem; }
   .ow-cert__name { font-size: 0.84rem; }
+  .ow-footer__grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1914,6 +2079,10 @@
           <p>Gestión regional de iniciativas con Power Platform y Azure para banca centroamericana.</p>
           <div class="ow-case__tags"><span class="ow-tag">Power Platform</span><span class="ow-tag">Azure</span></div>
         </article>
+      </div>
+      <div class="ow-section__actions">
+        <a class="ow-btn ow-btn--primary" href="orion-works-experiencia-es.html">Ver experiencia en proyectos</a>
+        <a class="ow-btn ow-btn--ghost" href="#contacto">Hablar con nosotros</a>
       </div>
     </div>
   </section>
@@ -2410,19 +2579,46 @@
   </section>
 
   <footer class="ow-footer">
-    <div class="ow-wrap ow-footer__row">
-      <div class="ow-footer__brand">
-        <img class="ow-footer__logo" src="assets/orion-works-logo.png" alt="Orion Works.ai — Intelligent solutions for a data-driven future" width="120" height="162" loading="lazy" decoding="async">
-        <div class="ow-footer__meta">
-          <strong>Orion Works.ai</strong>
-          Ingeniería de IA y datos
+    <div class="ow-wrap">
+      <div class="ow-footer__grid">
+        <div class="ow-footer__brand">
+          <img class="ow-footer__logo" src="assets/orion-works-logo.png" alt="Orion Works.ai" width="120" height="162" loading="lazy" decoding="async">
+          <div class="ow-footer__meta">
+            <strong>Orion Works.ai</strong>
+            <p>Ingeniería de IA y datos sobre Azure, Databricks y Microsoft Power Platform.</p>
+          </div>
+        </div>
+        <div>
+          <span class="ow-footer__col-title">Navegación</span>
+          <ul class="ow-footer__links">
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#plataforma">Plataforma</a></li>
+            <li><a href="#modalidades">Modalidades</a></li>
+            <li><a href="#certificaciones">Certificaciones</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="ow-footer__col-title">Contacto</span>
+          <div class="ow-footer__contact">
+            <a href="https://wa.me/593998816054" target="_blank" rel="noopener noreferrer">WhatsApp +593 99881 6054</a>
+            <a href="mailto:ndpaz7@yahoo.com">ndpaz7@yahoo.com</a>
+            <span>Quito, Ecuador · LatAm</span>
+          </div>
+        </div>
+        <div class="ow-footer__cta">
+          <span class="ow-footer__col-title">Trayectoria</span>
+          <p>Revisa la lista completa de proyectos entregados en banca, fondos, energía y servicios.</p>
+          <a class="ow-btn ow-btn--primary" href="orion-works-experiencia-es.html">Experiencia en proyectos</a>
         </div>
       </div>
-      <div>
-        <a href="index.html">Versiones</a>
-        · <a href="orion-works-v2-es.html">V02</a>
-        · <a href="https://orion-works.ai">orion-works.ai</a>
-        · © <span id="ow-year">2026</span>
+      <div class="ow-footer__bottom">
+        <div>
+          <a href="index.html">Versiones</a>
+          · <a href="orion-works-v2-es.html">Versión 02</a>
+          · <a href="https://orion-works.ai">orion-works.ai</a>
+        </div>
+        <div>© <span id="ow-year">2026</span> Orion Works.ai</div>
       </div>
     </div>
   </footer>
